@@ -220,7 +220,7 @@ strong { font-weight: 700; }
 .contact-grid img { border-radius: var(--radius); width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .contact-grid .who { font-weight: 700; text-transform: uppercase; margin: 24px 0 8px; }
 .contact-grid .links a { display: block; }
-.contact-grid .icon-btn { margin-top: 12px; margin-left: -10px; }
+.contact-grid .icon-btn { display: inline-grid; margin-top: 12px; margin-left: -10px; margin-right: 6px; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--ink); color: #fff; padding: 96px 0 32px; position: relative; overflow: hidden; }
