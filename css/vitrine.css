@@ -303,3 +303,12 @@ body.cb-open .sticky-cta { display: none; }
   .cookie-banner { left: 12px; right: 12px; bottom: 12px; max-width: none; }
   .cb-actions button { flex: 1; }
 }
+.terms ul { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1180px) { .terms ul { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .terms ul { grid-template-columns: 1fr; } }
+.terms-link { margin: 20px 0 0; font-size: 15px; font-weight: 500; }
+.terms-link a { color: var(--accent); }
+.seo-local { max-width: 760px; margin: 48px auto 0; text-align: center; color: #5b6070; font-size: 15px; line-height: 1.6; }
+.seo-local h3 { font-size: 18px; color: var(--ink); margin-bottom: 10px; }
+.seo-local p { margin: 0 0 10px; }
+.seo-local strong { color: var(--ink); font-weight: 500; }
