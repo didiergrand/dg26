@@ -17,8 +17,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/vitrine.css">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/vitrine.css?v=3">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,10 +30,12 @@
     "offers": { "@type": "Offer", "price": "100", "priceCurrency": "CHF", "description": "Abonnement mensuel, engagement 12 mois, facturé annuellement, sans frais de mise en service" }
   }
   </script>
-  <!-- Pixel Meta : collez votre identifiant (15-16 chiffres) entre les guillemets. Vide = pixel désactivé. -->
+  <!-- Pixel Meta : identifiant ci-dessous (vide = désactivé).
+       Il ne se charge qu'après accord du visiteur dans le bandeau cookies (choix mémorisé dans le navigateur). -->
   <script>
-    window.META_PIXEL_ID = "";
-    if (window.META_PIXEL_ID) {
+    window.META_PIXEL_ID = "29340630575566348";
+    window.loadMetaPixel = function () {
+      if (!window.META_PIXEL_ID || window.fbq) return;
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
       n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
@@ -41,7 +43,8 @@
       document,'script','https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', window.META_PIXEL_ID);
       fbq('track', 'PageView');
-    }
+    };
+    try { if (localStorage.getItem("dg-cookies") === "oui") window.loadMetaPixel(); } catch (e) {}
   </script>
 </head>
 <body class="lp">
@@ -382,6 +385,14 @@
 
 </main>
 
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookies" hidden>
+  <p>Ce site utilise le pixel Meta pour mesurer l'efficacité de ses publicités. Acceptez-vous ces cookies&nbsp;? <a href="confidentialite.html">En savoir plus</a></p>
+  <div class="cb-actions">
+    <button type="button" class="cb-no" data-choice="non">Refuser</button>
+    <button type="button" class="cb-yes" data-choice="oui">Accepter</button>
+  </div>
+</div>
+
 <div class="sticky-cta" id="sticky-cta">
   <p class="t"><b>CHF 100.– / mois</b>Dispo dès le <span class="js-dispo-short">11 nov.</span></p>
   <a class="btn js-cta" data-cta="sticky" href="mailto:dg@digitalgarage.ch?subject=Site%20vitrine%20%C3%A0%20CHF%20100.-%20%2F%20mois">Je démarre</a>
@@ -427,6 +438,7 @@
     </div>
     <div class="f-bottom">
       <span>© Digitalgarage – Didier Grand</span>
+      <a href="confidentialite.html">Protection des données</a>
       <span>Le Jordil · Veveyse · Fribourg · Suisse romande</span>
     </div>
   </div>
@@ -481,6 +493,25 @@
     const update = () => bar.classList.toggle("show", !heroVisible && !finalVisible);
     new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; update(); }).observe(hero);
     new IntersectionObserver(([e]) => { finalVisible = e.isIntersecting; update(); }).observe(final);
+  })();
+  // Bandeau cookies : le pixel Meta ne se charge qu'après « Accepter ».
+  (function () {
+    const box = document.getElementById("cookie-banner");
+    let choice = null;
+    try { choice = localStorage.getItem("dg-cookies"); } catch (e) {}
+    const show = () => { box.hidden = false; document.body.classList.add("cb-open"); };
+    const hide = () => { box.hidden = true; document.body.classList.remove("cb-open"); };
+    if (!choice && window.META_PIXEL_ID) show();
+    box.addEventListener("click", e => {
+      const c = e.target.dataset && e.target.dataset.choice;
+      if (!c) return;
+      try { localStorage.setItem("dg-cookies", c); } catch (err) {}
+      if (c === "oui") window.loadMetaPixel();
+      hide();
+    });
+    // Lien « gérer mes préférences cookies » (site-vitrine.html#cookies)
+    const reopen = () => { if (location.hash === "#cookies") show(); };
+    window.addEventListener("hashchange", reopen); reopen();
   })();
 </script>
 

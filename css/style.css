@@ -279,3 +279,10 @@ strong { font-weight: 700; }
   .cta-box { padding: 40px 20px; }
   .site-footer .contact { font-size: 19px; }
 }
+
+/* Page protection des données */
+.legal { padding-top: 56px; padding-bottom: 80px; }
+.legal h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 900; letter-spacing: -1px; margin-bottom: 8px; }
+.legal h2 { font-size: 22px; margin: 36px auto 10px; }
+.legal .muted { color: var(--muted-2); margin-bottom: 24px; }
+.f-bottom a { color: inherit; }
