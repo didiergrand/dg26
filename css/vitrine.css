@@ -291,3 +291,35 @@ body.cb-open .sticky-cta { display: none; }
 .seo-local h3 { font-size: 18px; color: var(--ink); margin-bottom: 10px; }
 .seo-local p { margin: 0 0 10px; }
 .seo-local strong { color: var(--ink); font-weight: 500; }
+
+/* ---------- 3 formules ---------- */
+.included { background: var(--card); border-radius: 16px; padding: 26px 30px; margin-bottom: 24px; }
+.included h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+.included ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 28px; }
+.included li { display: flex; gap: 10px; padding: 5px 0; font-size: 15px; }
+.included svg { width: 18px; height: 18px; color: #16a34a; flex-shrink: 0; margin-top: 2px; }
+#tarif .pricing { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+#tarif .plan { background: #fff; color: var(--ink); border: 1.5px solid var(--line); display: flex; flex-direction: column; padding: 32px 28px; }
+#tarif .plan h3 { font-weight: 700; margin-bottom: 14px; }
+#tarif .plan .amount { font-size: 48px; }
+#tarif .plan .amount small { font-size: 17px; }
+#tarif .plan .billing { color: #5b6070; margin: 8px 0 14px; font-size: 14px; }
+#tarif .plan .desc { font-size: 15px; color: #5b6070; margin: 0 0 18px; min-height: 2.8em; }
+#tarif .plan ul { margin-bottom: 26px; flex: 1; }
+#tarif .plan li { font-size: 15px; padding: 6px 0; }
+#tarif .plan li svg { color: #16a34a; }
+#tarif .plan .btn { justify-content: center; background: var(--ink); color: #fff; }
+#tarif .plan.confort { background: var(--ink); color: #fff; border-color: var(--ink); }
+#tarif .plan.confort .billing, #tarif .plan.confort .desc { color: #b9bfcc; }
+#tarif .plan.confort li svg { color: #4ade80; }
+#tarif .plan.confort .btn { background: #fff; color: var(--ink); }
+.avail-line { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 22px 0 0; font-size: 15px; color: #5b6070; }
+.avail-line b { color: var(--ink); }
+#tarif .options { margin-top: 24px; padding: 26px 30px; }
+#tarif .options h3 { font-size: 17px; margin-bottom: 4px; }
+.opt-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+@media (max-width: 1000px) {
+  #tarif .pricing { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+  .opt-row, .included ul { grid-template-columns: 1fr; }
+  #tarif .plan .desc { min-height: 0; }
+}
