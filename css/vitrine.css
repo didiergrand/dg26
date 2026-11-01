@@ -137,8 +137,9 @@
 
 /* Réalisations */
 .works { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.work.yours { grid-column: span 2; }
 .work.yours .slot {
-  aspect-ratio: 16 / 11.4; border: 2px dashed #c9ccd4; border-radius: 10px;
+  aspect-ratio: 33 / 11.4; border: 2px dashed #c9ccd4; border-radius: 10px;
   display: grid; place-content: center; text-align: center; gap: 6px; padding: 12px;
   transition: border-color .2s, background .2s;
 }
