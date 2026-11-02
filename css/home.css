@@ -216,6 +216,8 @@ a.c-half:hover .img img { transform: translateY(-8px) scale(1.02); }
 @media (max-width: 900px) {
   .h-hero .grid, .commit { grid-template-columns: 1fr; gap: 56px; }
   .portrait { justify-self: center; max-width: 380px; }
+  /* Badge du diplôme au-dessus de la photo, pour ne pas cacher le visage */
+  .float.f1 { top: -24px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .skill-cards { grid-template-columns: 1fr; }
   .c-scott { grid-template-columns: 1fr; }

@@ -1,5 +1,6 @@
 /* Bandeau cookies + outils de mesure (Google Analytics, pixel Meta).
-   Rien n'est chargé tant que le visiteur n'a pas cliqué sur « Accepter ».
+   Mode « informer + refuser » (droit suisse) : les outils sont actifs dès l'arrivée,
+   sauf si le visiteur a cliqué sur « Refuser ».
    Le choix est mémorisé dans le navigateur (clé "dg-cookies" : "oui" ou "non").
    Pour rouvrir le bandeau : un lien vers "#cookies". */
 (function () {
@@ -54,7 +55,7 @@
     });
   }
 
-  if (getChoice() === "oui") loadAll();
+  if (getChoice() !== "non") loadAll();
 
   function buildBanner() {
     var tools = [];
@@ -67,20 +68,20 @@
     box.setAttribute("aria-label", "Cookies");
     box.hidden = true;
     box.innerHTML =
-      "<p>Ce site utilise " + tools.join(" et ") + ". Acceptez-vous ces cookies&nbsp;? " +
+      "<p>Ce site utilise des cookies&nbsp;: " + tools.join(" et ") + ". Vous pouvez les refuser. " +
       '<a href="confidentialite.html">En savoir plus</a></p>' +
       '<div class="cb-actions"><button type="button" class="cb-no" data-choice="non">Refuser</button>' +
-      '<button type="button" class="cb-yes" data-choice="oui">Accepter</button></div>';
+      '<button type="button" class="cb-yes" data-choice="oui">OK</button></div>';
     document.body.appendChild(box);
 
     box.addEventListener("click", function (e) {
       var c = e.target && e.target.getAttribute("data-choice");
       if (!c) return;
-      var before = getChoice();
+      var loaded = !!(window.gtag || window.fbq);
       setChoice(c);
       hide();
       if (c === "oui") loadAll();
-      else if (before === "oui") { clearCookies(); location.reload(); }
+      else if (loaded) { clearCookies(); location.reload(); }
     });
     return box;
   }
