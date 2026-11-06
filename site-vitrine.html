@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=6">
-  <link rel="stylesheet" href="css/vitrine.css?v=7">
+  <link rel="stylesheet" href="css/vitrine.css?v=11">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -185,6 +185,7 @@
           <a class="btn-ghost" href="#realisations">Voir des réalisations</a>
         </div>
         <p class="fine"><span class="chip"><span class="dot" aria-hidden="true"></span><span>Prochaine disponibilité&nbsp;: <b class="js-dispo">mercredi 11 novembre</b></span></span></p>
+        <p class="has-site">Vous avez déjà un site&nbsp;? <a href="#refonte">Diagnostic gratuit →</a></p>
       </div>
 
       <div class="stack" aria-hidden="true">
@@ -205,6 +206,46 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Un interlocuteur unique</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Basé en Veveyse (FR)</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- ============ REFONTE + DIAGNOSTIC GRATUIT ============ -->
+  <section class="lp-section" id="refonte">
+    <div class="lp-wrap refonte">
+      <div class="refonte-txt">
+        <p class="eyebrow-sm">Vous avez déjà un site&nbsp;?</p>
+        <h2>Votre site a pris un coup de vieux&nbsp;?</h2>
+        <p class="lead">La plupart des entreprises de la région ont déjà un site. Mais souvent, il a été fait il y a des années et plus personne ne s’en occupe.</p>
+        <ul class="signs">
+          <li>Il s’affiche mal sur smartphone</li>
+          <li>Vous ne savez plus comment le modifier</li>
+          <li>Les horaires, photos ou prix ne sont plus à jour</li>
+          <li>On ne vous trouve pas sur Google</li>
+        </ul>
+        <p class="lead">Je reprends vos contenus et je refais votre site avec la même formule&nbsp;: <strong>dès CHF 100.– par mois, sans frais de départ</strong>.</p>
+      </div>
+
+      <div class="diag" id="diagnostic">
+        <form class="js-mini" action="diagnostic.php" method="post" novalidate data-lead="diagnostic-gratuit">
+          <span class="chip accent">Gratuit et sans engagement</span>
+          <h3>Diagnostic gratuit de votre site</h3>
+          <p>J’analyse votre site actuel et je vous envoie mes recommandations sous 48&nbsp;h.</p>
+          <label>Adresse de votre site<input type="text" name="site" placeholder="www.votre-entreprise.ch" autocomplete="url" inputmode="url" required></label>
+          <label>Votre nom<input type="text" name="nom" autocomplete="name" required></label>
+          <label>E-mail ou téléphone<input type="text" name="contact" autocomplete="email" required></label>
+          <input type="hidden" name="origine" class="js-origine" value="site-vitrine">
+          <label class="hp" aria-hidden="true">Ne pas remplir<input type="text" name="societe_web" tabindex="-1" autocomplete="off"></label>
+          <button class="btn btn-lg btn-arrow" type="submit">Recevoir mon diagnostic</button>
+          <p class="msg" role="status" aria-live="polite"></p>
+          <noscript><p class="msg">Ce formulaire a besoin de JavaScript. Écrivez-moi à <a href="mailto:dg@digitalgarage.ch">dg@digitalgarage.ch</a> ou appelez le 078 653 58 90.</p></noscript>
+          <p class="fine">Vos données servent uniquement à vous répondre. <a href="confidentialite.html">Protection des données</a></p>
+        </form>
+        <div class="diag-ok mini-ok" hidden>
+          <span class="ok-ico" aria-hidden="true">✓</span>
+          <h3>Merci, c’est noté&nbsp;!</h3>
+          <p>J’analyse votre site et je vous réponds sous 48&nbsp;h avec mes recommandations.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -344,7 +385,7 @@
           <p class="billing">CHF 1’200.– par an, facturé annuellement</p>
           <p class="desc">Vous avez déjà un hébergement pour votre site.</p>
           <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Hébergement&nbsp;: le vôtre</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>1 h de modifications de contenu par mois</span></li></ul>
-          <a class="btn btn-lg btn-arrow js-cta" data-cta="tarif-essentiel" data-formule="essentiel" href="mailto:dg@digitalgarage.ch?subject=Site%20vitrine%20%C3%A0%20CHF%20100.-%20%2F%20mois">Choisir Essentiel</a>
+          <a class="btn btn-lg btn-arrow js-pick" data-formule="essentiel" href="#demande">Choisir Essentiel</a>
         </div>
         <div class="plan confort">
           <span class="tag">Le plus simple</span><h3>Confort</h3>
@@ -352,7 +393,7 @@
           <p class="billing">CHF 1’320.– par an, facturé annuellement</p>
           <p class="desc">Tout compris, sans vous soucier de la technique.</p>
           <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Hébergement inclus</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>1 h de modifications de contenu par mois</span></li></ul>
-          <a class="btn btn-lg btn-arrow js-cta" data-cta="tarif-confort" data-formule="confort" href="mailto:dg@digitalgarage.ch?subject=Site%20vitrine%20%C3%A0%20CHF%20100.-%20%2F%20mois">Choisir Confort</a>
+          <a class="btn btn-lg btn-arrow js-pick" data-formule="confort" href="#demande">Choisir Confort</a>
         </div>
         <div class="plan plus">
           <h3>Plus</h3>
@@ -360,10 +401,39 @@
           <p class="billing">CHF 1’800.– par an, facturé annuellement</p>
           <p class="desc">Pour être bien visible sur Google et faire vivre votre site.</p>
           <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Hébergement inclus</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>2 h de modifications de contenu par mois</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Fiche Google Business créée et tenue à jour</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Aide à la rédaction de vos nouveaux contenus</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Optimisation du référencement (SEO)</span></li></ul>
-          <a class="btn btn-lg btn-arrow js-cta" data-cta="tarif-plus" data-formule="plus" href="mailto:dg@digitalgarage.ch?subject=Site%20vitrine%20%C3%A0%20CHF%20100.-%20%2F%20mois">Choisir Plus</a>
+          <a class="btn btn-lg btn-arrow js-pick" data-formule="plus" href="#demande">Choisir Plus</a>
         </div>
       </div>
-      <p class="avail-line"><span class="dot" aria-hidden="true"></span><span>Prochaine disponibilité&nbsp;: <b class="js-dispo">mercredi 11 novembre</b></span></p>
+      <div class="mini" id="demande">
+        <form class="js-mini" action="diagnostic.php" method="post" novalidate data-lead="demande-formule">
+          <div class="mini-head">
+            <h3>Réservez votre premier rendez-vous</h3>
+            <p><span class="dot" aria-hidden="true"></span>Prochaine disponibilité&nbsp;: <b class="js-dispo">mercredi 11 novembre</b>. Je vous recontacte sous 48&nbsp;h.</p>
+          </div>
+          <fieldset class="pick">
+            <legend>Formule</legend>
+            <label><input type="radio" name="formule" value="Essentiel"><span>Essentiel · 100.–</span></label>
+            <label><input type="radio" name="formule" value="Confort" checked><span>Confort · 110.–</span></label>
+            <label><input type="radio" name="formule" value="Plus"><span>Plus · 150.–</span></label>
+            <label><input type="radio" name="formule" value="Je ne sais pas encore"><span>Je ne sais pas encore</span></label>
+          </fieldset>
+          <div class="mini-fields">
+            <label>Votre nom<input type="text" name="nom" autocomplete="name" required></label>
+            <label>E-mail ou téléphone<input type="text" name="contact" autocomplete="email" required></label>
+            <button class="btn btn-lg btn-arrow" type="submit">Envoyer</button>
+          </div>
+          <input type="hidden" name="type" value="rendez-vous">
+          <input type="hidden" name="origine" class="js-origine" value="site-vitrine">
+          <label class="hp" aria-hidden="true">Ne pas remplir<input type="text" name="societe_web" tabindex="-1" autocomplete="off"></label>
+          <p class="msg" role="status" aria-live="polite"></p>
+          <noscript><p class="msg">Ce formulaire a besoin de JavaScript. Écrivez-moi à <a href="mailto:dg@digitalgarage.ch">dg@digitalgarage.ch</a> ou appelez le 078 653 58 90.</p></noscript>
+          <p class="fine">Sans engagement&nbsp;: on en parle d’abord ensemble. <a href="confidentialite.html">Protection des données</a></p>
+        </form>
+        <div class="mini-ok" hidden>
+          <span class="ok-ico" aria-hidden="true">✓</span>
+          <div><h3>Merci, c’est noté&nbsp;!</h3><p>Je vous recontacte sous 48&nbsp;h pour fixer notre premier rendez-vous.</p></div>
+        </div>
+      </div>
 
       <div class="options">
         <h3>En plus, si besoin</h3>
@@ -497,7 +567,7 @@
         </details>
         <details>
           <summary>Je suis déjà client ou j’ai déjà un site, est-ce possible de passer à cette formule&nbsp;?</summary>
-          <p>Bien sûr. Remplissez le formulaire en précisant l’adresse de votre site actuel&nbsp;: nous en parlerons lors de notre rendez-vous.</p>
+          <p>Bien sûr. Demandez d’abord le <a href="#refonte">diagnostic gratuit</a> de votre site actuel&nbsp;: je vous dis ce qui peut être amélioré, puis nous en parlons lors de notre rendez-vous.</p>
         </details>
       </div>
     </div>
@@ -620,6 +690,55 @@
     if (window.fbq) fbq("track", "Lead", { content_name: "site-vitrine", placement: where, formule: formule });
     if (window.gtag) gtag("event", "generate_lead", { event_category: "site-vitrine", event_label: where, formule: formule });
   }));
+
+  // Mini formulaires (diagnostic gratuit, demande de formule) : envoi sans quitter la page
+  (function () {
+    const q = new URLSearchParams(location.search);
+    const debut = Date.now(); // sert à écarter les robots qui envoient en moins de 3 secondes
+    document.querySelectorAll(".js-mini").forEach(form => {
+      const box = form.parentElement, msg = form.querySelector(".msg"), btn = form.querySelector("button[type=submit]");
+      const label = btn.textContent;
+      if (q.get("utm_campaign")) form.querySelector(".js-origine").value = "pub " + q.get("utm_campaign");
+      const done = () => { form.hidden = true; box.querySelector(".mini-ok").hidden = false; };
+      if (q.get("envoi") === "ok" && location.hash === "#" + box.id) done();
+
+      form.addEventListener("submit", async e => {
+        e.preventDefault();
+        msg.textContent = "";
+        const empty = [...form.querySelectorAll("[required]")].find(i => !i.value.trim());
+        if (empty) { msg.textContent = "Merci de remplir tous les champs."; empty.focus(); return; }
+        btn.disabled = true; btn.textContent = "Envoi…";
+        try {
+          const body = new FormData(form);
+          body.append("duree", Date.now() - debut);
+          const r = await fetch(form.action, { method: "POST", body, headers: { Accept: "application/json" } });
+          const data = await r.json();
+          if (!data.ok) throw { serveur: data.message };
+          done();
+          const f = form.formule ? form.formule.value : "";
+          if (window.fbq) fbq("track", "Lead", { content_name: form.dataset.lead, formule: f });
+          if (window.gtag) gtag("event", "generate_lead", { event_category: form.dataset.lead, formule: f });
+        } catch (err) {
+          // Message du serveur (champ manquant, trop de demandes…), sinon message de secours
+          if (err && err.serveur) msg.textContent = err.serveur;
+          else msg.innerHTML = "L’envoi n’a pas fonctionné. Vous pouvez aussi m’écrire à <a href=\"mailto:dg@digitalgarage.ch\">dg@digitalgarage.ch</a> ou appeler le <a href=\"tel:+41786535890\">078 653 58 90</a>.";
+          btn.disabled = false; btn.textContent = label;
+        }
+      });
+    });
+
+    // « Choisir Essentiel / Confort / Plus » : descend au formulaire avec la formule cochée
+    document.querySelectorAll(".js-pick").forEach(a => a.addEventListener("click", e => {
+      const form = document.querySelector("#demande form");
+      const val = { essentiel: "Essentiel", confort: "Confort", plus: "Plus" }[a.dataset.formule];
+      const radio = form && [...form.formule].find(r => r.value === val);
+      if (!radio) return;
+      e.preventDefault();
+      radio.checked = true;
+      document.getElementById("demande").scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => form.nom.focus({ preventScroll: true }), 500);
+    }));
+  })();
 
   // Barre d'action mobile : apparaît après le premier écran, se cache sur le CTA final
   (function () {
