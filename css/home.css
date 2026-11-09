@@ -86,7 +86,14 @@
 .marquee span { font-size: 22px; font-weight: 700; letter-spacing: -0.4px; color: #9aa0ae; white-space: nowrap; display: flex; align-items: center; gap: 56px; }
 .marquee span::after { content: "✦"; font-size: 14px; color: var(--accent); }
 @keyframes scroll { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .marquee .track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } }
+/* Animations réduites (réglage du téléphone) : liste fixe, compacte, sans la copie qui sert au défilement */
+@media (prefers-reduced-motion: reduce) {
+  .marquee .track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; gap: 8px 22px; padding: 0 20px; }
+  .marquee span { gap: 22px; }
+  .marquee span[aria-hidden="true"] { display: none; }
+  .marquee span:nth-last-child(15)::after { content: none; }
+  @media (max-width: 640px) { .marquee span { font-size: 16px; } }
+}
 
 /* ---------- Chiffres ---------- */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
