@@ -2,3 +2,9 @@
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^digitalgarage\.ch$ [NC]
 RewriteRule ^(.*)$ https://www.digitalgarage.ch/$1 [R=301,L]
+
+# Adresses sans .html : /site-vitrine -> site-vitrine.html
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
