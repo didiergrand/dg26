@@ -1,0 +1,86 @@
+[
+  {
+    "file": "figma.svg",
+    "icon": "logos:figma",
+    "name": "Figma",
+    "kind": "colour",
+    "source": "gilbarbara/logos@d6960edc1b7309d392c76e40d3a320df7f9ff85c",
+    "author": "Gil Barbara",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/gilbarbara/logos",
+    "trademark": true,
+    "markUrl": "https://www.figma.com/"
+  },
+  {
+    "file": "framer.svg",
+    "icon": "logos:framer",
+    "name": "Framer",
+    "kind": "colour",
+    "source": "gilbarbara/logos@d6960edc1b7309d392c76e40d3a320df7f9ff85c",
+    "author": "Gil Barbara",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/gilbarbara/logos",
+    "trademark": true,
+    "markUrl": "https://www.framer.com/"
+  },
+  {
+    "file": "nextjs.svg",
+    "icon": "logos:nextjs-icon",
+    "name": "Next.js",
+    "kind": "colour",
+    "source": "gilbarbara/logos@d6960edc1b7309d392c76e40d3a320df7f9ff85c",
+    "author": "Gil Barbara",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/gilbarbara/logos",
+    "trademark": true,
+    "markUrl": "https://vercel.com/solutions/nextjs"
+  },
+  {
+    "file": "react.svg",
+    "icon": "logos:react",
+    "name": "React",
+    "kind": "colour",
+    "source": "gilbarbara/logos@d6960edc1b7309d392c76e40d3a320df7f9ff85c",
+    "author": "Gil Barbara",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/gilbarbara/logos",
+    "trademark": true,
+    "markUrl": "https://facebook.github.io/react/"
+  },
+  {
+    "file": "storybook.svg",
+    "icon": "logos:storybook-icon",
+    "name": "Storybook",
+    "kind": "colour",
+    "source": "gilbarbara/logos@d6960edc1b7309d392c76e40d3a320df7f9ff85c",
+    "author": "Gil Barbara",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/gilbarbara/logos",
+    "trademark": true,
+    "markUrl": "https://storybook.js.org/"
+  },
+  {
+    "file": "tailwindcss.svg",
+    "icon": "logos:tailwindcss-icon",
+    "name": "Tailwind CSS",
+    "kind": "colour",
+    "source": "gilbarbara/logos@d6960edc1b7309d392c76e40d3a320df7f9ff85c",
+    "author": "Gil Barbara",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/gilbarbara/logos",
+    "trademark": true,
+    "markUrl": "https://tailwindcss.com/"
+  },
+  {
+    "file": "wordpress.svg",
+    "icon": "logos:wordpress-icon",
+    "name": "WordPress",
+    "kind": "colour",
+    "source": "gilbarbara/logos@d6960edc1b7309d392c76e40d3a320df7f9ff85c",
+    "author": "Gil Barbara",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/gilbarbara/logos",
+    "trademark": true,
+    "markUrl": "https://wordpress.org/"
+  }
+]

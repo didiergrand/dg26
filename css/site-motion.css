@@ -1,0 +1,81 @@
+/* Site motion, in the spirit of dennissnellenberg.com: the home page and the case pages. js/site-motion.js drives it.
+   - headings rise line by line out of masks the first time they come on screen (the hero's language);
+     the words, rows and pictures that follow fade up a little behind them, once
+   - on a case page the title enters that way on load, and its first picture settles
+   - the photographs uncover from their foot; on the home page the large ones drift slowly in their frames
+   - the home work list: the other rows step back, the row under the pointer moves in, its picture wipes up
+   - the main buttons lean toward the pointer
+   - between pages, a short fade
+   Nothing is hidden without script, in print, under reduced motion or with data-motion="off":
+   the script marks an element only when it is about to animate it. */
+
+:root {
+  --hm-ease: cubic-bezier(.22, 1, .36, 1);      /* an entrance settling: long soft tail (motion.css --m-ease-enter) */
+  --hm-ease-out: cubic-bezier(.2, .8, .2, 1);   /* the UI ease-out (system.css --ease) */
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+
+  /* ------------------------------------------------ a case page's head waits, 700ms at most (the line in <head>) */
+  html.hm-enter:not(.hm-enter-done) body.page .page-head > * { opacity: 0; }
+
+  /* ------------------------------------------------ headings, line by line */
+  html.hm-on .hm-w { display: inline-block; overflow: clip; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+  html.hm-on .hm-w__in { display: inline-block; translate: 0 110%; }
+  html.hm-on .hm-in .hm-w__in { translate: 0 0; transition: translate 900ms var(--hm-ease); transition-delay: calc(var(--hm-line, 0) * 90ms); }
+
+  /* ------------------------------------------------ blocks fade up */
+  html.hm-on .hm-up { opacity: 0; translate: 0 24px; }
+  html.hm-on .hm-up.hm-in { opacity: 1; translate: 0 0;
+    transition: opacity 700ms var(--hm-ease-out), translate 900ms var(--hm-ease); transition-delay: calc(var(--hm-i, 0) * 70ms + 120ms); }
+
+  /* ------------------------------------------------ a picture uncovers from its foot and settles from a slight zoom */
+  html.hm-on .hm-pic { --hm-r: var(--r-lg, 0px); clip-path: inset(100% 0 0 0 round var(--hm-r)); }
+  html.hm-on .hm-pic.hm-in { clip-path: inset(0 0 0 0 round var(--hm-r)); transition: clip-path 1100ms var(--hm-ease) 120ms; }
+  html.hm-on .hm-pic :is(.frame__img, .figure > img, .figure > a > img) { scale: var(--hm-s, 1.08); }
+  html.hm-on .hm-pic.hm-in :is(.frame__img, .figure > img, .figure > a > img) { --hm-s: var(--hm-rest, 1); transition: scale 1400ms var(--hm-ease) 120ms; }
+  /* the first picture of a case page is on screen already: it only settles, as the home hero's portrait does */
+  html.hm-on .hm-pic--settle, html.hm-on .hm-pic--settle.hm-in { clip-path: none; overflow: clip; border-radius: var(--hm-r); }
+  html.hm-on .hm-pic--settle :is(.figure > img, .figure > a > img) { --hm-s: 1.05; }
+
+  /* ------------------------------------------------ the drift inside a frame (home) */
+  html.hm-on .hm-par { --hm-rest: 1.1; }
+  html.hm-on .hm-par > .frame__img { scale: var(--hm-s, 1.1); translate: 0 var(--hm-y, 0px); will-change: translate; }
+  html.hm-on .hm-par.hm-pic:not(.hm-in) > .frame__img { --hm-s: 1.18; }
+
+  /* ------------------------------------------------ the work list (home, from 1024, a mouse) */
+  @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+    html.hm-on #realisations .rows > li { transition: opacity 400ms var(--hm-ease-out); }
+    html.hm-on #realisations .rows:is(:hover, :focus-within) > li:not(.is-on) { opacity: .4; }
+    html.hm-on #realisations .rows .rows__name { display: inline-block; transition: translate 500ms var(--hm-ease); }
+    html.hm-on #realisations .rows:is(:hover, :focus-within) > li.is-on .rows__name { translate: 12px 0; }
+
+    /* the new picture wipes up over the one it replaces */
+    html.hm-on [data-peek] .hm-under { z-index: 0; }
+    html.hm-on [data-peek] .hm-over { z-index: 1; animation: hm-wipe 650ms var(--hm-ease) both; }
+    html.hm-on [data-peek] img.hm-over { animation: hm-wipe 650ms var(--hm-ease) both, hm-settle 900ms var(--hm-ease) both; }
+    html.hm-on [data-peek] .wall.hm-over > img { animation: hm-settle 900ms var(--hm-ease) both; }
+  }
+
+  /* ------------------------------------------------ magnetic buttons (a mouse) */
+  @media (hover: hover) and (pointer: fine) {
+    html.hm-on .hm-mag { translate: var(--hm-mx, 0px) var(--hm-my, 0px); transition: translate 600ms var(--hm-ease); }
+    html.hm-on .hm-mag.hm-mag--on { transition-duration: 160ms; }
+    /* the way back keeps its own hover colour and nudge */
+    html.hm-on body.page .back a.hm-mag { transition: translate 600ms var(--hm-ease), background-color 160ms var(--hm-ease-out), transform 160ms var(--hm-ease-out); }
+    html.hm-on body.page .back a.hm-mag.hm-mag--on { transition-duration: 160ms; }
+  }
+}
+
+@keyframes hm-wipe { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes hm-settle { from { scale: 1.08; } to { scale: 1; } }
+
+/* ------------------------------------------------ between pages (css/theme.css and css/vitrine-theme.css carry the same rule) */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) { animation: hm-page-out 240ms var(--hm-ease-out) both; }
+  ::view-transition-new(root) { animation: hm-page-in 520ms var(--hm-ease) both; }
+}
+@media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
+@keyframes hm-page-out { to { opacity: 0; } }
+@keyframes hm-page-in { from { opacity: 0; translate: 0 16px; } }

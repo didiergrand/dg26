@@ -1,326 +1,300 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-type="service" data-radius="soft" data-buttons="solid" data-motion>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Didier Grand - Créatif digital · UX · Frontend · Project Management</title>
-  <meta name="description" content="Créatif digital · UX · Frontend · Web Project Manager Diplômé, Didier Grand conçoit des expériences digitales élégantes et intuitives, alliant vision utilisateur, gestion de projet et expertise front-end.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Didier Grand - Créatif digital · UX · Frontend · Project Management">
-  <meta property="og:description" content="Créatif digital · UX · Frontend · Web Project Manager Diplômé, Didier Grand conçoit des expériences digitales élégantes et intuitives, alliant vision utilisateur, gestion de projet et expertise front-end.">
-  <meta property="og:image" content="https://www.digitalgarage.ch/images/og-image.png">
-  <meta property="og:url" content="https://www.digitalgarage.ch/">
-  <link rel="canonical" href="https://www.digitalgarage.ch/">
-  <link rel="icon" href="images/favicon.png">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=6">
-  <link rel="stylesheet" href="css/home.css?v=8">
-  <script>document.documentElement.classList.add("js");</script>
-  <script src="js/consent.js?v=3" defer></script>
-</head>
-<body class="home">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Didier Grand - Créatif digital · UX · Frontend · Project Management</title>
+<meta name="description" content="Créatif digital · UX · Frontend · Web Project Manager Diplômé, Didier Grand conçoit des expériences digitales élégantes et intuitives, alliant vision utilisateur, gestion de projet et expertise front-end.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Didier Grand - Créatif digital · UX · Frontend · Project Management">
+<meta property="og:description" content="Créatif digital · UX · Frontend · Web Project Manager Diplômé, Didier Grand conçoit des expériences digitales élégantes et intuitives, alliant vision utilisateur, gestion de projet et expertise front-end.">
+<meta property="og:image" content="https://www.digitalgarage.ch/images/og-image.png">
+<meta property="og:url" content="https://www.digitalgarage.ch/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.digitalgarage.ch/">
+<link rel="icon" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<link rel="stylesheet" href="css/shared.css?v=3">
+<link rel="stylesheet" href="css/site-motion.css?v=1">
+<!-- page CSS: only what sits inside a visual (the logo, the vitrine wall, tool icons) and the cookie banner of js/consent.js -->
+<style>
+  /* the vitrine row of the work list: six client sites as one wall inside the frame */
+  .frame > .wall.wall { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 2px; overflow: hidden; background: var(--g-dark, #26251e); }
+  .wall[hidden] { display: none; }
+  .wall > img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+  /* tools named in the skills: real icons beside their names */
+  .tools { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+  /* the skills' paragraphs use the whole text column */
+  [data-moment="pinned-chapters"] .mo-pc__step p { max-width: none; }
+  /* the chapters' pictures keep the moment's frame, whatever the file's own size */
+  [data-moment="pinned-chapters"]:not(.is-live) .mo-pc__visual > img { height: auto; }
+  /* the hero's headline keeps whole words */
+  .hero h1 { hyphens: manual; -webkit-hyphens: manual; }
+  /* at rest on a tablet the skills section holds two whole screens */
+  @media (min-width: 640px) and (max-width: 1023px) { main > #competences:not(.is-live) { min-height: 200svh; } }
+  .tools .pill .ic { --ic-s: 16px; }
+  /* the work rows link to their case pages */
+  #realisations .rows a { color: inherit; text-decoration: none; }
+  #realisations .rows .rows__name { font: var(--display-weight) var(--t-card)/1.3 var(--font-display); letter-spacing: var(--display-tracking); }
+  /* from 1024 the method's photograph and the quotes' pictures run down to the section's foot */
+  @media (min-width: 1024px) {
+    #methode .wrap.grid { grid-template-rows: minmax(0, 1fr); align-content: stretch; }
+    #engagement .wrap > .grid { align-items: stretch; }
+    #engagement .group .grid { align-content: start; row-gap: var(--s-7); }
+    #engagement .wrap > .grid > div { display: flex; flex-direction: column; }
+    #engagement .wrap > .grid > div > .frame { flex: 1 1 auto; }
+  }
+  /* the clients' names set large, run on as one paragraph of type */
+  .names { list-style: none; margin: 0 0 var(--s-7); padding: 0; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5);
+    font: var(--display-weight) var(--t-h3)/1.25 var(--font-display); letter-spacing: var(--display-tracking); }
+  .names li:not(:last-child)::after { content: "/"; margin-left: var(--s-5); color: var(--muted); }
+  #clients .frame { min-height: 200px; }
+  @media (max-width: 1023px) { main .frame--photo.frame--fill { --ratio: 75%; height: auto; } #clients .frame { --ratio: 50%; } #realisations .frame--photo.frame--fill { --ratio: 56.25%; } }
+  @media (max-width: 639px) { #clients .frame { --ratio: 75%; } #realisations .frame--photo.frame--fill { --ratio: 75%; } }
+  /* the quotes' pictures grow shallower as the screen narrows, so each quote stays on its screen */
+  @media (max-width: 1279px) { #engagement .frame--stage { --ratio: 40%; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #engagement .frame--stage { --ratio: 28%; } #engagement .group .grid > .span-6 { grid-column: span 6; } #engagement .group .grid { grid-template-columns: repeat(12, minmax(0, 1fr)); } }
+  /* a phone: the work section's two groups keep their full height and stack */
+  @media (max-width: 639px) { #realisations .wrap > *, #realisations .group > .fill { flex: none; } }
+  /* a phone: the headline a step smaller and one hero button, so the first screen holds the portrait */
+  @media (max-width: 639px) { #engagement .frame--stage { --ratio: 30%; } .hero h1 { font-size: 36px; } .hero .btn--secondary { display: none; } }
+  #realisations .rows a { display: block; padding-block: var(--s-2); }
+</style>
 
-<header class="site-header">
-  <div class="bar">
-    <a class="logo" href="index.html" aria-label="Accueil Digitalgarage">
-      <svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg>
-      <span>Didier Grand</span>
-    </a>
-    <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html#competences">Compétences</a>
-      <a href="index.html#realisations">Réalisations</a>
-      <a href="index.html#engagement">Engagement</a>
-      <a class="new" href="site-vitrine.html">Site vitrine</a>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js"><link rel="modulepreload" href="assets/moments/pinned-chapters/moment.js">
+<script src="js/consent.js?v=3" defer></script>
+</head>
+<body>
+<!-- type: service (one person hired for web projects: UX, frontend, project management)
+     deal: hero split (photo and film dealt first: the portrait is 1024px wide, under the 1920 a full-bleed photo needs, and there is no film),
+           palette stone-blueprint (warm stone like the desk wood and paper of a studio, the blue of a blueprint beside the navy logo),
+           type figtree, nav nav-mega, close close-type (close-photo dealt first: every client photograph is already used once above), footer footer-columns, rhythm dark-band, buttons solid, mark: the client's own logo
+     moments: pinned-chapters in #competences -->
+
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Aller au contenu</a>
+    <a class="nav__logo" href="index.html" aria-label="Accueil Digitalgarage">
+      <svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg><span class="nav__name">Didier Grand</span></a>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <div class="nav__item"><a class="nav__link" href="index.html#competences">Compétences</a></div>
+      <div class="nav__item"><a class="nav__link" href="index.html#realisations">Réalisations</a></div>
+      <div class="nav__item"><a class="nav__link" href="index.html#engagement">Engagement</a></div>
+      <div class="nav__item"><a class="nav__link" href="site-vitrine.html">Site vitrine</a></div>
     </nav>
-    <div class="header-icons">
-      <a class="icon-btn" href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a class="icon-btn" href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      </a>
-      <a class="icon-btn" href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      </a>
-      <a class="nav-cta" href="contact.html">Me contacter</a>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="contact.html">Me contacter</a>
     </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </header>
 
-<main>
+<main id="top">
 
-  <!-- ================= HERO ================= -->
-  <section class="h-hero">
-    <div class="wrap grid">
-      <div>
-        <span class="hello reveal"><img src="images/didier-grand.jpg" alt=""><span>Bonjour, je suis <b>Didier Grand</b></span></span>
-        <h1 class="reveal d1">Je conçois et pilote des expériences digitales <span class="grad">de bout en bout.</span></h1>
-        <div class="roles reveal d2"><span>Project Management</span><span>UX / UI Design</span><span>Frontend</span></div>
-        <p class="lead reveal d2">Recherche utilisateur, parcours, prototypage, design systems et développement&nbsp;: j’accompagne aussi bien des PME et associations de ma région que des plateformes internationales comme Scott Sports, en collaboration étroite avec les équipes produit et tech.</p>
-        <div class="actions reveal d3">
-          <a class="btn-pill dark" href="#realisations">Voir mes réalisations
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-          <a class="btn-pill line" href="contact.html">Discutons de votre projet</a>
+  <!-- HERO: split, the portrait on the right -->
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Bonjour, je suis Didier Grand</p>
+        <h1 id="hero-h">Je conçois et pilote des expériences digitales de bout en bout.</h1>
+        <p class="hero__lead">Recherche utilisateur, parcours, prototypage, design systems et développement&nbsp;: avec Digitalgarage, j’accompagne les PME et associations de ma région. En parallèle, je suis UX/UI Expert chez Scott Sports.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html">Me contacter<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="#realisations">Voir mes réalisations</a>
         </div>
       </div>
-
-      <div class="portrait reveal d2">
-        <div class="ph"><img src="images/didier-grand.jpg" alt="Portrait de Didier Grand" width="1024" height="1024"></div>
-        <div class="float f1">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg></span>
-          <div><b>Diplôme fédéral</b><small>Web Project Manager</small></div>
-        </div>
-        <div class="float f2">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-          <div><b>20+ ans</b><small>d’expérience web</small></div>
-        </div>
-        <div class="float f3">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
-          <div><b>Du design au code</b><small>Figma · React · WordPress</small></div>
+      <div class="hero__media span-6 start-7">
+        <img src="images/didier-grand.jpg" alt="Portrait de Didier Grand" width="1024" height="1024" style="--ly-pos: 50% 30%" fetchpriority="high" data-source="client" data-subject="Didier Grand">
+        <div class="ly-float">
+          <div class="ly-float__row"><span>Diplôme fédéral</span><span>20+ ans d’expérience web</span></div>
+          <div class="ly-float__title">Web Project Manager</div>
         </div>
       </div>
-    </div>
+    </div></div>
   </section>
 
-  <!-- ================= CLIENTS ================= -->
-  <section class="marquee" aria-label="Ils m'ont fait confiance">
-    <p>Ils m’ont fait confiance</p>
-    <div class="track">
-      <span>Scott Sports</span><span>JCIS Forum 2026</span><span>Commune de Remaufens</span><span>Commune de Semsales</span><span>Commune d’Attalens</span><span>Commune de St-Martin</span><span>Commune de Granges</span><span>Commune de Bossonnens</span><span>Hôtel Le Manoir</span><span>Garage Girard</span><span>J. Vuichard SA</span><span>Fanfare L’Edelweiss</span><span>Désalpe de Semsales</span><span>MaudePhoto</span>
-      <span aria-hidden="true">Scott Sports</span><span aria-hidden="true">JCIS Forum 2026</span><span aria-hidden="true">Commune de Remaufens</span><span aria-hidden="true">Commune de Semsales</span><span aria-hidden="true">Commune d’Attalens</span><span aria-hidden="true">Commune de St-Martin</span><span aria-hidden="true">Commune de Granges</span><span aria-hidden="true">Commune de Bossonnens</span><span aria-hidden="true">Hôtel Le Manoir</span><span aria-hidden="true">Garage Girard</span><span aria-hidden="true">J. Vuichard SA</span><span aria-hidden="true">Fanfare L’Edelweiss</span><span aria-hidden="true">Désalpe de Semsales</span><span aria-hidden="true">MaudePhoto</span>
-    </div>
-  </section>
-
-
-  <!-- ================= COMPÉTENCES ================= -->
-  <section class="skills-dark" id="competences">
+  <!-- CLIENTS: the names set large, then the region they come from as a wide picture -->
+  <section class="section" id="clients" aria-labelledby="clients-h">
     <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow-sm">Compétences</p>
-          <h2 class="h2 reveal">Trois métiers,<br><em>une seule vision.</em></h2>
-        </div>
-        <p class="lead reveal d1">Parce qu’un bon projet digital se joue autant dans la stratégie que dans le pixel et la ligne de code.</p>
+      <div class="section-head">
+        <h2 id="clients-h">Quelques clients récents</h2>
+        <p>Communes, PME, associations et événements de la région&nbsp;: chaque projet reçoit la même exigence. Project Management, UX/UI Design et Frontend, du design au code avec Figma, React et WordPress.</p>
       </div>
-
-      <div class="skill-cards">
-        <article class="sk reveal">
-          <div class="num">01<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Web Project Manager</h3>
-          <p class="k">Collaborer pour mieux concevoir</p>
-          <p>J’ai récemment obtenu le Diplôme fédéral de Web Project Manager, une formation exigeante qui m’a permis de renforcer ma vision stratégique, mes compétences en pilotage de projets digitaux, en coordination d’équipes et en marketing digital.</p>
-          <p>Ce diplôme vient structurer et formaliser une pratique acquise sur le terrain, au contact de projets concrets et d’environnements exigeants.</p>
-          <div class="tags"><span>Pilotage</span><span>Coordination</span><span>Marketing digital</span><span>Double Diamond</span></div>
-        </article>
-        <article class="sk reveal d1">
-          <div class="num">02<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-          <h3>UX UI Designer</h3>
-          <p class="k">Expériences digitales fluides</p>
-          <p>Particulièrement sensible à la clarté, à l’ergonomie, au rythme éditorial et à la qualité de l’expérience utilisateur, je crée des designs intuitifs et efficaces en utilisant des librairies de composants modernes afin d’accélérer le développement de l’interface.</p>
-          <p>Les outils comme Figma ou Framer sont mes alliés quotidiens pour créer des prototypes rapides.</p>
-          <div class="tags"><span>Figma</span><span>Framer</span><span>Design systems</span><span>Prototypage</span></div>
-        </article>
-        <article class="sk reveal d2">
-          <div class="num">03<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
-          <h3>Front End Developer</h3>
-          <p class="k">Aligner design et technique</p>
-          <p>Transformer une intention graphique en une interface fidèle, claire et cohérente, c’est ce que je préfère dans le développement frontend. J’ai travaillé sur des projets React et Next.js, et mis en place une librairie de composants avec Tailwind, Shadcn et Storybook.</p>
-          <p>En parallèle, je développe des sites avec WordPress. Les thèmes sur mesure que je conçois sont basés sur le framework Underscores.</p>
-          <div class="tags"><span>React</span><span>Next.js</span><span>Tailwind</span><span>Storybook</span><span>WordPress</span></div>
-        </article>
+      <ul class="names"><li>JCIS Forum 2026</li><li>Commune de Remaufens</li><li>Commune de Semsales</li><li>Commune d’Attalens</li><li>Commune de St-Martin</li><li>Commune de Granges</li><li>Commune de Bossonnens</li><li>Hôtel Le Manoir</li><li>Garage Girard</li><li>J. Vuichard SA</li><li>Fanfare L’Edelweiss</li><li>Désalpe de Semsales</li><li>MaudePhoto</li></ul>
+      <div class="frame frame--photo fill">
+        <img class="frame__img" src="images/home/chatel-st-denis.webp" width="1600" height="800" alt="La grand-rue de Châtel-St-Denis au crépuscule, en Veveyse" loading="lazy" style="object-position: 50% 62%" data-source="client" data-subject="Châtel-St-Denis">
       </div>
-
-      <h3 class="method-title reveal">Ma méthode, du besoin à la mise en ligne</h3>
-      <ol class="method">
-        <li class="reveal"><h4>Comprendre</h4><p>Entretiens, analyse de l’existant et recherche utilisateur.</p></li>
-        <li class="reveal d1"><h4>Structurer</h4><p>Architecture de l’information et parcours clés.</p></li>
-        <li class="reveal d2"><h4>Prototyper</h4><p>Wireframes et maquettes testées dans Figma ou Framer.</p></li>
-        <li class="reveal d3"><h4>Construire</h4><p>Design system et développement front-end ou WordPress.</p></li>
-        <li class="reveal d3"><h4>Accompagner</h4><p>Mise en ligne, formation et suivi après le lancement.</p></li>
-      </ol>
     </div>
   </section>
 
-  <!-- ================= RÉALISATIONS ================= -->
-  <section class="sec" id="realisations">
+  <!-- COMPÉTENCES: pinned-chapters, three skills, one picture each -->
+  <section class="section" id="competences" style="--h: 2" data-moment="pinned-chapters" aria-labelledby="competences-h">
+    <div class="wrap mo-pc__grid">
+      <div class="mo-pc__text">
+        <div class="section-head">
+          <h2 id="competences-h">Trois métiers, une seule vision. <span class="muted">Parce qu’un bon projet digital se joue autant dans la stratégie que dans le pixel et la ligne de code.</span></h2>
+        </div>
+        <ol class="mo-pc__steps">
+          <li class="mo-pc__step">
+            <h3>Web Project Manager · Collaborer pour mieux concevoir</h3>
+            <p>J’ai récemment obtenu le Diplôme fédéral de Web Project Manager, une formation exigeante qui m’a permis de renforcer ma vision stratégique, mes compétences en pilotage de projets digitaux, en coordination d’équipes et en marketing digital. Ce diplôme vient structurer et formaliser une pratique acquise sur le terrain, au contact de projets concrets et d’environnements exigeants.</p>
+            <p><span class="tools"><span class="pill">Pilotage</span><span class="pill">Coordination</span><span class="pill">Marketing digital</span><span class="pill">Double Diamond</span></span></p>
+            <figure class="mo-pc__visual"><img src="images/home/remaufens-double-diamond.webp" alt="Le Double Diamond appliqué au projet de la Commune de Remaufens" width="1200" height="1215" loading="lazy" style="object-fit: contain; background: #fff"></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>UX UI Designer · Expériences digitales fluides</h3>
+            <p>Particulièrement sensible à la clarté, à l’ergonomie, au rythme éditorial et à la qualité de l’expérience utilisateur, je crée des designs intuitifs et efficaces en utilisant des librairies de composants modernes afin d’accélérer le développement de l’interface. Les outils comme Figma ou Framer sont mes alliés quotidiens pour créer des prototypes rapides.</p>
+            <p><span class="tools"><span class="pill"><img class="ic ic-tall" src="assets/icons/figma.svg" alt="" loading="lazy" width="11" height="16">Figma</span><span class="pill"><img class="ic ic-tall ic-ink" src="assets/icons/framer.svg" alt="" loading="lazy" width="11" height="16">Framer</span><span class="pill">Design systems</span><span class="pill">Prototypage</span></span></p>
+            <figure class="mo-pc__visual"><img src="images/home/scott-wireframes.webp" alt="Wireframes d’une fiche produit pour Scott Sports" width="1200" height="1570" loading="lazy" style="object-fit: contain; background: #fff"></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Front End Developer · Aligner design et technique</h3>
+            <p>Transformer une intention graphique en une interface fidèle, claire et cohérente, c’est ce que je préfère dans le développement frontend. J’ai travaillé sur des projets React et Next.js, et mis en place une librairie de composants avec Tailwind, Shadcn et Storybook. En parallèle, je développe des sites avec WordPress. Les thèmes sur mesure que je conçois sont basés sur le framework Underscores.</p>
+            <p><span class="tools"><span class="pill"><img class="ic" src="assets/icons/react.svg" alt="" loading="lazy" width="18" height="16">React</span><span class="pill"><img class="ic" src="assets/icons/nextjs.svg" alt="" loading="lazy" width="16" height="16">Next.js</span><span class="pill"><img class="ic ic-land" src="assets/icons/tailwindcss.svg" alt="" loading="lazy" width="27" height="16">Tailwind</span><span class="pill"><img class="ic" src="assets/icons/storybook.svg" alt="" loading="lazy" width="13" height="16">Storybook</span><span class="pill"><img class="ic ic-ink" src="assets/icons/wordpress.svg" alt="" loading="lazy" width="16" height="16">WordPress</span></span></p>
+            <figure class="mo-pc__visual"><img src="images/home/scott-product-card.webp" alt="La product card de Scott Sports, développée en composants" width="1000" height="1371" loading="lazy" style="object-fit: contain; background: #fff"></figure>
+          </li>
+        </ol>
+      </div>
+      <div class="mo-pc__visuals frame"></div>
+    </div>
+  </section>
+
+  <!-- MÉTHODE: five steps as rows beside Didier at work -->
+  <section class="section" id="methode" aria-labelledby="methode-h">
+    <div class="wrap grid grid--top">
+      <div class="span-5">
+        <div class="section-head">
+          <h2 id="methode-h">Ma méthode, du besoin à la mise en ligne</h2>
+        </div>
+        <ol class="rows">
+          <li><span class="rows__name">Comprendre</span><p>Entretiens, analyse de l’existant et recherche utilisateur.</p><span class="rows__value">01</span></li>
+          <li><span class="rows__name">Structurer</span><p>Architecture de l’information et parcours clés.</p><span class="rows__value">02</span></li>
+          <li><span class="rows__name">Prototyper</span><p>Wireframes et maquettes testées dans Figma ou Framer.</p><span class="rows__value">03</span></li>
+          <li><span class="rows__name">Construire</span><p>Design system et développement front-end ou WordPress.</p><span class="rows__value">04</span></li>
+          <li><span class="rows__name">Accompagner</span><p>Mise en ligne, formation et suivi après le lancement.</p><span class="rows__value">05</span></li>
+        </ol>
+      </div>
+      <div class="frame frame--photo frame--fill span-6 start-7">
+        <img class="frame__img" src="images/home/didier-grand-contact.webp" width="1024" height="585" alt="Didier Grand au travail sur une maquette, à son bureau" loading="lazy" style="object-position: 30% 50%" data-source="client" data-subject="Didier Grand at work">
+      </div>
+    </div>
+  </section>
+
+  <!-- RÉALISATIONS: the dark band: the case list beside its picture -->
+  <section class="section ground-inverse" id="realisations" aria-labelledby="realisations-h">
     <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow-sm">Réalisations récentes</p>
-          <h2 class="h2 reveal">Des projets concrets,<br><em>des résultats visibles.</em></h2>
+      <div class="group">
+        <div class="section-head">
+          <h2 id="realisations-h">Des projets concrets, des résultats visibles.</h2>
         </div>
-        <p class="lead reveal d1">De la plateforme e-commerce internationale au site de la commune voisine, chaque projet reçoit la même exigence.</p>
-      </div>
-
-      <div class="bento">
-        <a class="card c-vitrine reveal" href="site-vitrine.html">
-          <div class="top">
-            <div>
-              <span class="tag">Nouveau · Sites vitrines</span>
-              <h3>Un site pro pour les PME et associations</h3>
-              <p class="s" style="margin:0">Hôtel, garage, menuiserie, photographe, fanfare… Sans frais de départ, en ligne en 2 semaines, aide à la saisie et mises à jour incluses.</p>
+        <div class="grid grid--top fill" data-peek>
+          <ul class="rows span-5">
+            <li data-peek-to="vitrine"><a href="site-vitrine.html"><span class="rows__name">Un site pro pour les PME et associations</span></a><p>Nouveau · Sites vitrines. Hôtel, garage, menuiserie, photographe, fanfare… Sans frais de départ, en ligne en 2 semaines, aide à la saisie et mises à jour incluses.</p><span class="rows__value">CHF 100.– / mois</span></li>
+            <li data-peek-to="jcis"><a href="site-web-jcis-forum-2026.html"><span class="rows__name">JCIS Forum 2026</span></a><p>Design UI · WordPress. Un univers graphique inspiré du cinéma, conçu et mis en ligne en à peine deux mois pour un événement national.</p><span class="rows__value">2 mois</span></li>
+            <li data-peek-to="remaufens"><a href="remaufens.html"><span class="rows__name">Commune de Remaufens</span></a><p>Project management · UX · WordPress. Refonte complète du site officiel&nbsp;: des parcours simplifiés pour les habitants et une administration autonome.</p><span class="rows__value">Refonte</span></li>
+          </ul>
+          <div class="frame frame--photo frame--fill span-6 start-7">
+            <div class="wall" data-peek-for="vitrine">
+              <img src="images/vitrine/hotel-lemanoir.webp" alt="Site vitrine de l’Hôtel Le Manoir" width="1200" height="750">
+              <img src="images/vitrine/vuichardsa.webp" alt="Site vitrine de J. Vuichard SA" width="1200" height="750">
+              <img src="images/vitrine/garage-girard.webp" alt="Site vitrine du Garage Girard" width="1200" height="750">
+              <img src="images/vitrine/fanfare-semsales.webp" alt="Site vitrine de la fanfare de Semsales" width="1200" height="750">
+              <img src="images/vitrine/demierremecanique.webp" alt="Site vitrine de Demierre Mécanique" width="1200" height="750">
+              <img src="images/vitrine/desalpe-semsales.webp" alt="Site vitrine de la Désalpe de Semsales" width="1200" height="750">
             </div>
-            <span class="price">CHF 100.– / mois →</span>
-          </div>
-          <div class="shots" aria-hidden="true">
-            <div class="track">
-              <div class="shot"><img src="images/vitrine/hotel-lemanoir.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/vuichardsa.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/garage-girard.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/fanfare-semsales.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/demierremecanique.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/desalpe-semsales.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/hotel-lemanoir.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/vuichardsa.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/garage-girard.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/fanfare-semsales.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/demierremecanique.webp" alt="" loading="lazy"></div>
-              <div class="shot"><img src="images/vitrine/desalpe-semsales.webp" alt="" loading="lazy"></div>
-            </div>
-          </div>
-        </a>
-        <a class="card c-half c-jcis reveal" href="site-web-jcis-forum-2026.html">
-          <span class="tag" style="align-self:flex-start">Design UI · WordPress</span>
-          <h3>JCIS Forum 2026</h3>
-          <p class="s">Un univers graphique inspiré du cinéma, conçu et mis en ligne en à peine deux mois pour un événement national.</p>
-          <span class="go"><i>→</i>En savoir plus</span>
-          <div class="img"><img src="images/jcis-mockup.png" alt="Design et dev du site internet JCIS Forum 2026" loading="lazy" width="1024" height="1024"></div>
-        </a>
-
-        <a class="card c-half c-rem reveal d1" href="remaufens.html">
-          <span class="tag" style="align-self:flex-start">Project management · UX · WordPress</span>
-          <h3>Commune de Remaufens</h3>
-          <p class="s">Refonte complète du site officiel&nbsp;: des parcours simplifiés pour les habitants et une administration autonome.</p>
-          <span class="go"><i>→</i>En savoir plus</span>
-          <div class="img"><img src="images/remaufens-mockup.png" alt="Refonte complète du site internet de la commune de Remaufens" loading="lazy" width="1024" height="1024"></div>
-        </a>
-        <div class="card c-scott reveal">
-          <div class="img"><img src="images/scott-sports.png" alt="Cyclistes Scott Sports sur un sentier en forêt" loading="lazy" width="1024" height="683"></div>
-          <div class="txt">
-            <span class="tag">UX/UI Expert · B2B &amp; B2C</span>
-            <h3>Didier Grand × Scott Sports</h3>
-            <p class="s">Expériences digitales pour plateformes B2B &amp; B2C</p>
-            <div class="kpis"><div><b>10+ ans</b><span>de collaboration</span></div><div><b>B2B &amp; B2C</b><span>plateformes</span></div></div>
-            <p>Avec plus de dix ans d’expérience au service de Scott Sports, j’ai contribué à l’évolution des plateformes B2B et B2C en combinant développement front-end, design d’interfaces et amélioration continue de l’expérience utilisateur.</p>
-            <p>Aujourd’hui, en tant qu’UX/UI Expert, je conçois et prototype de nouvelles fonctionnalités, explore des directions visuelles pour le futur e-commerce B2C et veille à maintenir un design system solide.</p>
+            <img class="frame__img" data-peek-for="jcis" src="images/home/jcis-mockup.webp" alt="Design et dev du site internet JCIS Forum 2026" width="1000" height="1000" hidden style="background:#fff;object-fit:contain">
+            <img class="frame__img" data-peek-for="remaufens" src="images/home/remaufens-mockup.webp" alt="Refonte complète du site internet de la commune de Remaufens" width="1000" height="1000" hidden style="background:#fff;object-fit:contain">
           </div>
         </div>
-
-
       </div>
     </div>
   </section>
 
-  <!-- ================= ENGAGEMENT ================= -->
-  <section class="sec home-end" id="engagement">
-    <div class="wrap commit">
-      <div>
-        <p class="eyebrow-sm">Mon engagement</p>
-        <h2 class="h2 reveal">Un partenaire,<br><em>pas un prestataire.</em></h2>
-        <div class="values">
-          <div class="value reveal">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-            <div><h3>Écoute et proximité</h3><p>Un interlocuteur unique, du premier rendez-vous à la mise en ligne, et un contact direct tout au long du projet.</p></div>
-          </div>
-          <div class="value reveal d1">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-            <div><h3>Des délais tenus</h3><p>Une organisation rigoureuse et des décisions rapides&nbsp;: le site du JCIS Forum 2026 a été livré en à peine deux mois.</p></div>
-          </div>
-          <div class="value reveal d2">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
-            <div><h3>Votre autonomie</h3><p>Des outils simples et une formation pour gérer vos contenus sans dépendre d’intervenants externes.</p></div>
-          </div>
-          <div class="value reveal d3">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
-            <div><h3>L’exigence du détail</h3><p>Clarté, ergonomie, rythme éditorial&nbsp;: chaque détail compte pour une expérience réussie.</p></div>
-          </div>
+  <!-- ENGAGEMENT: two screens: the four values, then each quote under the project it speaks of -->
+  <section class="section g2" id="engagement" aria-labelledby="engagement-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head">
+          <h2 id="engagement-h">Un partenaire, pas un prestataire.</h2>
+        </div>
+        <div class="grid grid--top">
+          <div class="span-6 stack-2"><h3 class="t-card">Écoute et proximité</h3><p>Un interlocuteur unique, du premier rendez-vous à la mise en ligne, et un contact direct tout au long du projet.</p></div>
+          <div class="span-6 start-7 stack-2"><h3 class="t-card">Des délais tenus</h3><p>Une organisation rigoureuse et des décisions rapides&nbsp;: le site du JCIS Forum 2026 a été livré en à peine deux mois.</p></div>
+          <div class="span-6 stack-2"><h3 class="t-card">Votre autonomie</h3><p>Des outils simples et une formation pour gérer vos contenus sans dépendre d’intervenants externes.</p></div>
+          <div class="span-6 start-7 stack-2"><h3 class="t-card">L’exigence du détail</h3><p>Clarté, ergonomie, rythme éditorial&nbsp;: chaque détail compte pour une expérience réussie.</p></div>
         </div>
       </div>
-
-      <div class="quotes-stack">
-        <figure class="qcard reveal">
+      <div class="grid grid--top">
+        <div class="span-6 stack-5">
+          <figure class="quote">
           <blockquote>J’ai beaucoup apprécié travailler avec Digitalgarage. Didier est à la fois efficace, minutieux et force de proposition. La communication a toujours été régulière et fluide, et les délais ont été scrupuleusement respectés. Je recommande vivement&nbsp;!</blockquote>
-          <figcaption><span class="av">M</span><span><b>Mégane</b>Responsable communication – JCIS Veveyse</span></figcaption>
-        </figure>
-        <figure class="qcard dark reveal d1">
+          <figcaption class="person"><span class="avatar" aria-hidden="true">M</span><span><b>Mégane</b><br>Responsable communication – JCIS Veveyse</span></figcaption>
+          </figure>
+          <div class="frame frame--photo frame--stage"><img class="frame__img" src="images/home/jcis-hero.webp" alt="Le clap de cinéma, visuel du JCIS Forum 2026" width="1200" height="600" loading="lazy" data-source="client" data-subject="JCIS Forum 2026"></div>
+        </div>
+        <div class="span-6 start-7 stack-5">
+          <figure class="quote">
           <blockquote>La Commune de Remaufens a collaboré avec Didier Grand pour l’élaboration de son nouveau site internet. Efficace, patient et à l’écoute, il a su créer un site moderne et nous accompagner dans cette réalisation. Nous le recommandons vivement.</blockquote>
-          <figcaption><span class="av">A</span><span><b>Aurélie</b>Secrétaire communale, Commune de Remaufens</span></figcaption>
-        </figure>
+          <figcaption class="person"><span class="avatar" aria-hidden="true">A</span><span><b>Aurélie</b><br>Secrétaire communale, Commune de Remaufens</span></figcaption>
+          </figure>
+          <div class="frame frame--photo frame--stage"><img class="frame__img" src="images/home/remaufens-hero.webp" alt="Le village de Remaufens vu du ciel, en Veveyse" width="1200" height="600" loading="lazy" data-source="client" data-subject="Remaufens, Veveyse"></div>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="f-top">
-      <div>
-        <h2 class="f-title">Contactez-moi pour commencer une <span>nouvelle aventure créative.</span></h2>
-        <div class="f-contact">
-          <a href="mailto:dg@digitalgarage.ch">dg@digitalgarage.ch</a>
-          <a href="tel:+41786535890">078 653 58 90</a>
+<footer class="footer closing" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Contactez-moi pour commencer une nouvelle aventure créative.</h2>
+        <p>Discutons de votre projet&nbsp;: <a class="link" href="mailto:dg@digitalgarage.ch">dg@digitalgarage.ch</a> · <a class="link" href="tel:+41786535890">078 653 58 90</a></p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="contact.html">Me contacter<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="index.html"><svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg>Didier Grand</a>
+          <p>Créatif digital · Project Management · UX · Frontend. Spécialisé dans les plateformes et expériences digitales complexes.</p>
         </div>
+        <div class="span-2 footer__col"><h3>Navigation</h3><ul><li><a href="index.html">Accueil</a></li><li><a href="index.html#competences">Compétences</a></li><li><a href="index.html#realisations">Réalisations</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Réalisations</h3><ul><li><a href="projet-scott-product-card.html">Product card - UX/UI Design</a></li><li><a href="site-web-jcis-forum-2026.html">JCIS Forum 2026</a></li><li><a href="remaufens.html">Commune de Remaufens</a></li><li><a href="conception-site-web-chatel-st-denis-veveyse.html">Création de site internet à Châtel-St-Denis et en Veveyse</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Offre</h3><ul><li><a href="site-vitrine.html">Site vitrine dès CHF 100.– / mois</a></li><li><a href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       </div>
-      <a class="f-cta" href="contact.html">Me contacter →</a>
-    </div>
-    <div class="f-cols">
-      <div>
-        <p class="f-brand"><svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg>Didier Grand</p>
-        <p>Créatif digital · Project Management · UX · Frontend.<br>Spécialisé dans les plateformes et expériences digitales complexes.</p>
+      <div class="footer__legal">
+        <span>© Digitalgarage – Didier Grand</span>
+        <a href="confidentialite.html">Protection des données</a>
+        <a href="conditions-generales.html">Conditions générales</a>
+        <a href="#cookies" id="cookies">Cookies</a>
+        <span>Le Jordil · Veveyse · Fribourg · Suisse romande</span>
+        <span>Les noms de produits et logos sont des marques de leurs propriétaires</span>
       </div>
-      <nav aria-label="Navigation">
-        <h3>Navigation</h3>
-        <a href="index.html">Accueil</a>
-        <a href="index.html#competences">Compétences</a>
-        <a href="index.html#realisations">Réalisations</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <nav aria-label="Réalisations">
-        <h3>Réalisations</h3>
-        <a href="projet-scott-product-card.html">Product card - UX/UI Design</a>
-        <a href="site-web-jcis-forum-2026.html">JCIS Forum 2026</a>
-        <a href="remaufens.html">Commune de Remaufens</a>
-        <a href="conception-site-web-chatel-st-denis-veveyse.html">Création de site internet à Châtel-St-Denis et en Veveyse</a>
-      </nav>
-      <nav aria-label="Offre">
-        <h3>Offre</h3>
-        <a href="site-vitrine.html">Site vitrine dès CHF 100.– / mois</a>
-        <a href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener">Instagram</a>
-      </nav>
-    </div>
-    <div class="f-bottom">
-      <span>© Digitalgarage – Didier Grand</span>
-      <a href="confidentialite.html">Protection des données</a>
-      <a href="conditions-generales.html">Conditions générales</a>
-      <a href="#cookies">Cookies</a>
-      <span>Le Jordil · Veveyse · Fribourg · Suisse romande</span>
     </div>
   </div>
 </footer>
 
-<script>
-  // Apparition des éléments au défilement
-  (function () {
-    const els = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window)) { els.forEach(e => e.classList.add("in")); return; }
-    const io = new IntersectionObserver(entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-    }), { rootMargin: "0px 0px -8% 0px" });
-    els.forEach(e => io.observe(e));
-  })();
-  // Bordure de l'en-tête au défilement
-  (function () {
-    const h = document.querySelector(".site-header");
-    const on = () => h.classList.toggle("scrolled", scrollY > 8);
-    on(); addEventListener("scroll", on, { passive: true });
-  })();
-</script>
-
+<script src="js/site.js?v=1" defer></script>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script src="js/site-motion.js?v=1" defer></script>
 </body>
 </html>

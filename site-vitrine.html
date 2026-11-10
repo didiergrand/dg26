@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-type="service" data-radius="soft" data-buttons="solid" data-motion>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Création de site vitrine WordPress dès CHF 100.– / mois | Veveyse, Fribourg, Suisse romande</title>
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Création de site internet pour PME, artisans, indépendants, thérapeutes, clubs et associations en Veveyse, Gruyère, Fribourg et Suisse romande. Site vitrine WordPress pour CHF 100.– par mois, sans frais de départ, en ligne en 2 semaines.">
   <link rel="canonical" href="https://www.digitalgarage.ch/site-vitrine">
   <meta property="og:type" content="website">
@@ -16,9 +17,9 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=6">
-  <link rel="stylesheet" href="css/vitrine.css?v=11">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/vitrine.css?v=12">
+  <link rel="stylesheet" href="css/vitrine-theme.css?v=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -132,7 +133,7 @@
       "name": "Je suis déjà client ou j’ai déjà un site, est-ce possible de passer à cette formule ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bien sûr. Remplissez le formulaire en précisant l’adresse de votre site actuel : nous en parlerons lors de notre rendez-vous."
+        "text": "Bien sûr. Demandez d’abord le diagnostic gratuit de votre site actuel : je vous dis ce qui peut être amélioré, puis nous en parlons lors de notre rendez-vous."
       }
     }
   ]
@@ -144,34 +145,27 @@
 </head>
 <body class="lp">
 
-<header class="site-header">
-  <div class="bar">
-    <a class="logo" href="index.html" aria-label="Accueil Digitalgarage">
-      <svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg>
-      <span>Didier Grand</span>
-    </a>
-    <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html#competences">Compétences</a>
-      <a href="index.html#realisations">Réalisations</a>
-      <a href="index.html#engagement">Engagement</a>
-      <a class="new" href="site-vitrine.html">Site vitrine</a>
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Aller au contenu</a>
+    <a class="nav__logo" href="index.html" aria-label="Accueil Digitalgarage">
+      <svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg><span class="nav__name">Didier Grand</span></a>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <div class="nav__item"><a class="nav__link" href="index.html#competences">Compétences</a></div>
+      <div class="nav__item"><a class="nav__link" href="index.html#realisations">Réalisations</a></div>
+      <div class="nav__item"><a class="nav__link" href="index.html#engagement">Engagement</a></div>
+      <div class="nav__item"><a class="nav__link" href="site-vitrine.html" aria-current="page">Site vitrine</a></div>
     </nav>
-    <div class="header-icons">
-      <a class="icon-btn" href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a class="icon-btn" href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      </a>
-      <a class="icon-btn" href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      </a>
-      <a class="nav-cta" href="contact.html">Me contacter</a>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="contact.html">Me contacter</a>
     </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </header>
 
-<main>
+<main id="top">
 
   <!-- ============ HERO ============ -->
   <section class="lp-hero">
@@ -181,10 +175,10 @@
         <h1>Votre site vitrine professionnel dès <span class="price">CHF 100.–</span> par&nbsp;mois</h1>
         <p class="sub">Aucun frais de départ. Un site WordPress à votre image, en ligne <strong>2 semaines</strong> après notre rendez-vous, avec l’aide à la rédaction et les mises à jour incluses.</p>
         <div class="actions">
-          <a class="btn btn-lg btn-arrow js-cta" data-cta="hero" href="mailto:dg@digitalgarage.ch?subject=Site%20vitrine%20%C3%A0%20CHF%20100.-%20%2F%20mois">Je démarre mon projet</a>
+          <a class="btn btn-lg btn-arrow js-cta" data-cta="hero" href="#demande">Je démarre mon projet</a>
           <a class="btn-ghost" href="#realisations">Voir des réalisations</a>
         </div>
-        <p class="fine"><span class="chip"><span class="dot" aria-hidden="true"></span><span>Prochaine disponibilité&nbsp;: <b class="js-dispo">mercredi 11 novembre</b></span></span></p>
+        <p class="fine"><span class="chip"><span class="dot" aria-hidden="true"></span><span>Prochaine disponibilité&nbsp;: <b class="js-dispo">mercredi 25 novembre</b></span></span></p>
         <p class="has-site">Vous avez déjà un site&nbsp;? <a href="#refonte">Diagnostic gratuit →</a></p>
       </div>
 
@@ -315,7 +309,7 @@
         <p>Un processus simple et des délais clairs, pour que vous sachiez toujours où on en est.</p>
       </div>
       <ol class="steps">
-        <li class="step"><span class="when">2 minutes</span><h3>Le formulaire</h3><p>Vous me présentez votre activité et vos besoins en quelques questions.</p></li>
+        <li class="step"><span class="when">Sous 48&nbsp;h</span><h3>Votre demande</h3><p>Vous choisissez une formule et laissez vos coordonnées. Je vous recontacte sous 48&nbsp;h pour fixer le rendez-vous.</p></li>
         <li class="step"><span class="when">1 heure</span><h3>Notre rendez-vous</h3><p>On se rencontre pour définir le contenu, le style et les objectifs du site.</p></li>
         <li class="step"><span class="when">2 semaines</span><h3>La réalisation</h3><p>Je conçois et construis votre site. Vous recevez une première version complète.</p></li>
         <li class="step"><span class="when">3 tours inclus</span><h3>Les corrections</h3><p>Vous me transmettez vos retours. Chaque série de corrections est réalisée en une semaine, 3 séries sont comprises.</p></li>
@@ -357,7 +351,7 @@
           <div class="browser"><img src="images/vitrine/desalpe-semsales.webp" alt="Site de la Désalpe de Semsales" loading="lazy" width="1200" height="750"></div>
           <h3>Désalpe de Semsales</h3><p>Événement · Semsales</p>
         </a>
-        <a class="work yours js-cta" data-cta="realisations" href="mailto:dg@digitalgarage.ch?subject=Site%20vitrine%20%C3%A0%20CHF%20100.-%20%2F%20mois">
+        <a class="work yours js-cta" data-cta="realisations" href="#demande">
           <div class="slot"><b>+</b><span>Votre site ici&nbsp;?</span></div>
           <h3>Votre entreprise</h3><p class="url">Démarrer mon projet →</p>
         </a>
@@ -408,7 +402,7 @@
         <form class="js-mini" action="diagnostic.php" method="post" novalidate data-lead="demande-formule">
           <div class="mini-head">
             <h3>Réservez votre premier rendez-vous</h3>
-            <p><span class="dot" aria-hidden="true"></span>Prochaine disponibilité&nbsp;: <b class="js-dispo">mercredi 11 novembre</b>. Je vous recontacte sous 48&nbsp;h.</p>
+            <p><span class="dot" aria-hidden="true"></span>Prochaine disponibilité&nbsp;: <b class="js-dispo">mercredi 25 novembre</b>. Je vous recontacte sous 48&nbsp;h.</p>
           </div>
           <fieldset class="pick">
             <legend>Formule</legend>
@@ -520,7 +514,7 @@
         <p class="eyebrow-sm">Questions fréquentes</p>
         <h2>Tout ce qu’il faut savoir</h2>
       </div>
-      <div class="faq">
+      <div class="lp-faq">
         <details>
           <summary>Y a-t-il vraiment aucun frais de départ&nbsp;?</summary>
           <p>Oui. La conception, le design, l’aide à la rédaction et la mise en ligne sont compris dans l’abonnement, dès CHF 100.– par mois. Il n’y a pas de frais de mise en service.</p>
@@ -576,10 +570,10 @@
   <!-- ============ CTA FINAL ============ -->
   <section class="lp-wrap lp-end" aria-labelledby="cta-final">
     <div class="final">
-      <span class="chip"><span class="dot" aria-hidden="true"></span><span>Prochaine disponibilité&nbsp;: <b class="js-dispo">mercredi 11 novembre</b></span></span>
+      <span class="chip"><span class="dot" aria-hidden="true"></span><span>Prochaine disponibilité&nbsp;: <b class="js-dispo">mercredi 25 novembre</b></span></span>
       <h2 id="cta-final">Prêt à avoir enfin un site dont vous êtes fier&nbsp;?</h2>
-      <p>Remplissez le formulaire en 2 minutes. Je vous recontacte pour fixer un premier rendez-vous.</p>
-      <a class="btn btn-lg btn-light btn-arrow js-cta" data-cta="final" href="mailto:dg@digitalgarage.ch?subject=Site%20vitrine%20%C3%A0%20CHF%20100.-%20%2F%20mois">Je démarre mon projet</a>
+      <p>Choisissez votre formule et laissez vos coordonnées. Je vous recontacte sous 48&nbsp;h pour fixer notre premier rendez-vous.</p>
+      <a class="btn btn-lg btn-light btn-arrow js-cta" data-cta="final" href="#demande">Je démarre mon projet</a>
       <p class="small">Vous préférez en parler&nbsp;? <a href="tel:+41786535890">078 653 58 90</a> · <a href="mailto:dg@digitalgarage.ch">dg@digitalgarage.ch</a></p>
     </div>
   </section>
@@ -587,108 +581,70 @@
 </main>
 
 <div class="sticky-cta" id="sticky-cta">
-  <p class="t"><b>Dès CHF 100.– / mois</b>Dispo dès le <span class="js-dispo-short">11 nov.</span></p>
-  <a class="btn js-cta" data-cta="sticky" href="mailto:dg@digitalgarage.ch?subject=Site%20vitrine%20%C3%A0%20CHF%20100.-%20%2F%20mois">Je démarre</a>
+  <p class="t"><b>Dès CHF 100.– / mois</b>Dispo dès le <span class="js-dispo-short">25 nov.</span></p>
+  <a class="btn js-cta" data-cta="sticky" href="#demande">Je démarre</a>
 </div>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="f-top">
-      <div>
-        <h2 class="f-title">Contactez-moi pour commencer une <span>nouvelle aventure créative.</span></h2>
-        <div class="f-contact">
-          <a href="mailto:dg@digitalgarage.ch">dg@digitalgarage.ch</a>
-          <a href="tel:+41786535890">078 653 58 90</a>
+<footer class="footer closing" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Contactez-moi pour commencer une nouvelle aventure créative.</h2>
+        <p>Discutons de votre projet&nbsp;: <a class="link" href="mailto:dg@digitalgarage.ch">dg@digitalgarage.ch</a> · <a class="link" href="tel:+41786535890">078 653 58 90</a></p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="contact.html">Me contacter<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="index.html"><svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg>Didier Grand</a>
+          <p>Créatif digital · Project Management · UX · Frontend. Spécialisé dans les plateformes et expériences digitales complexes.</p>
         </div>
+        <div class="span-2 footer__col"><h3>Navigation</h3><ul><li><a href="index.html">Accueil</a></li><li><a href="index.html#competences">Compétences</a></li><li><a href="index.html#realisations">Réalisations</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Réalisations</h3><ul><li><a href="projet-scott-product-card.html">Product card - UX/UI Design</a></li><li><a href="site-web-jcis-forum-2026.html">JCIS Forum 2026</a></li><li><a href="remaufens.html">Commune de Remaufens</a></li><li><a href="conception-site-web-chatel-st-denis-veveyse.html">Création de site internet à Châtel-St-Denis et en Veveyse</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Offre</h3><ul><li><a href="site-vitrine.html">Site vitrine dès CHF 100.– / mois</a></li><li><a href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       </div>
-      <a class="f-cta" href="contact.html">Me contacter →</a>
-    </div>
-    <div class="f-cols">
-      <div>
-        <p class="f-brand"><svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg>Didier Grand</p>
-        <p>Créatif digital · Project Management · UX · Frontend.<br>Spécialisé dans les plateformes et expériences digitales complexes.</p>
+      <div class="footer__legal">
+        <span>© Digitalgarage – Didier Grand</span>
+        <a href="confidentialite.html">Protection des données</a>
+        <a href="conditions-generales.html">Conditions générales</a>
+        <a href="#cookies" id="cookies">Cookies</a>
+        <span>Le Jordil · Veveyse · Fribourg · Suisse romande</span>
+        <span>Les noms de produits et logos sont des marques de leurs propriétaires</span>
       </div>
-      <nav aria-label="Navigation">
-        <h3>Navigation</h3>
-        <a href="index.html">Accueil</a>
-        <a href="index.html#competences">Compétences</a>
-        <a href="index.html#realisations">Réalisations</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <nav aria-label="Réalisations">
-        <h3>Réalisations</h3>
-        <a href="projet-scott-product-card.html">Product card - UX/UI Design</a>
-        <a href="site-web-jcis-forum-2026.html">JCIS Forum 2026</a>
-        <a href="remaufens.html">Commune de Remaufens</a>
-        <a href="conception-site-web-chatel-st-denis-veveyse.html">Création de site internet à Châtel-St-Denis et en Veveyse</a>
-      </nav>
-      <nav aria-label="Offre">
-        <h3>Offre</h3>
-        <a href="site-vitrine.html">Site vitrine dès CHF 100.– / mois</a>
-        <a href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener">Instagram</a>
-      </nav>
-    </div>
-    <div class="f-bottom">
-      <span>© Digitalgarage – Didier Grand</span>
-      <a href="confidentialite.html">Protection des données</a>
-      <a href="conditions-generales.html">Conditions générales</a>
-      <a href="#cookies">Cookies</a>
-      <span>Le Jordil · Veveyse · Fribourg · Suisse romande</span>
     </div>
   </div>
 </footer>
 
 <script>
   /* ====== RÉGLAGES ======
-     FORM_URL : collez ici le lien de votre Google Form (ex. https://forms.gle/xxxx).
-     Tant qu'il est vide, les boutons ouvrent un e-mail.
      DISPO_DEPART : première date de disponibilité. La date avance
-     automatiquement de 2 semaines dès qu'elle est atteinte. */
-  const FORM_URL = "https://forms.gle/Xt2nJ7aRkqXDcPPB7";
-  /* Formule pré-cochée dans le formulaire quand on clique sur « Choisir … ».
-     Les textes doivent correspondre EXACTEMENT aux choix de la question du Google Form
-     (sinon rien n'est coché). Pour retrouver l'identifiant : Google Form → ⋮ → Obtenir le lien prérempli. */
-  const FORM_LONG_URL = "https://docs.google.com/forms/d/e/1FAIpQLScQd8mypSwy_GF-jVzEcrW0eZqZJG-UROqeHeiVC4yvTEgsZg/viewform";
-  const FORM_ENTRY_FORMULE = "entry.1269150400";
-  const FORMULES = {
-    essentiel: "Essentiel – CHF 100.–/mois (j’ai déjà un hébergement)",
-    confort: "Confort – CHF 110.–/mois (hébergement inclus)",
-    plus: "Plus – CHF 150.–/mois (hébergement, Google, SEO, 2 h de modifications)"
-  };
+     automatiquement de 2 semaines, DISPO_DELAI_JOURS jours avant d'être atteinte
+     (7 = une semaine avant : pour le mercredi 11, la page affiche déjà le 25 dès le mercredi 4). */
   const DISPO_DEPART = "2026-11-11";
   const DISPO_INTERVALLE_JOURS = 14;
+  const DISPO_DELAI_JOURS = 7;
 
   // Prochaine disponibilité
   (function () {
     const [y, m, d] = DISPO_DEPART.split("-").map(Number);
     const dispo = new Date(y, m - 1, d);
     const today = new Date(); today.setHours(0, 0, 0, 0);
-    while (dispo <= today) dispo.setDate(dispo.getDate() + DISPO_INTERVALLE_JOURS);
+    // la date change DISPO_DELAI_JOURS jours avant d'être atteinte
+    const limite = new Date(today); limite.setDate(limite.getDate() + DISPO_DELAI_JOURS);
+    while (dispo <= limite) dispo.setDate(dispo.getDate() + DISPO_INTERVALLE_JOURS);
     const long = dispo.toLocaleDateString("fr-CH", { weekday: "long", day: "numeric", month: "long" });
     const short = dispo.toLocaleDateString("fr-CH", { day: "numeric", month: "short" });
     document.querySelectorAll(".js-dispo").forEach(el => el.textContent = long);
     document.querySelectorAll(".js-dispo-short").forEach(el => el.textContent = short);
   })();
 
-  // Boutons d'appel à l'action → Google Form
-  (function () {
-    if (!FORM_URL) return;
-    document.querySelectorAll(".js-cta").forEach(a => {
-      const f = FORMULES[a.dataset.formule];
-      a.href = f ? FORM_LONG_URL + "?usp=pp_url&" + FORM_ENTRY_FORMULE + "=" + encodeURIComponent(f) : FORM_URL;
-      a.target = "_blank";
-      a.rel = "noopener";
-    });
-  })();
-
-  // Suivi des clics (fonctionne si le pixel Meta ou Google Analytics est installé)
+  // Suivi des clics (fonctionne si le pixel Meta ou Google Analytics est installé).
+  // Le clic ne fait que descendre au formulaire : le « Lead » est compté à l'envoi du formulaire, pas ici.
   document.querySelectorAll(".js-cta").forEach(a => a.addEventListener("click", () => {
     const where = a.dataset.cta;
-    const formule = a.dataset.formule || "non précisée";
-    if (window.fbq) fbq("track", "Lead", { content_name: "site-vitrine", placement: where, formule: formule });
-    if (window.gtag) gtag("event", "generate_lead", { event_category: "site-vitrine", event_label: where, formule: formule });
+    if (window.fbq) fbq("trackCustom", "ClicJeDemarre", { content_name: "site-vitrine", placement: where });
+    if (window.gtag) gtag("event", "select_content", { content_type: "cta", event_category: "site-vitrine", event_label: where });
   }));
 
   // Mini formulaires (diagnostic gratuit, demande de formule) : envoi sans quitter la page
@@ -727,6 +683,15 @@
       });
     });
 
+    // « Je démarre » : descend au formulaire de réservation, la formule déjà cochée reste
+    document.querySelectorAll(".js-cta").forEach(a => a.addEventListener("click", e => {
+      const form = document.querySelector("#demande form");
+      if (!form || form.hidden) return;
+      e.preventDefault();
+      document.getElementById("demande").scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => form.nom.focus({ preventScroll: true }), 500);
+    }));
+
     // « Choisir Essentiel / Confort / Plus » : descend au formulaire avec la formule cochée
     document.querySelectorAll(".js-pick").forEach(a => a.addEventListener("click", e => {
       const form = document.querySelector("#demande form");
@@ -746,12 +711,18 @@
     const hero = document.querySelector(".lp-hero");
     const final = document.querySelector(".final");
     if (!("IntersectionObserver" in window)) { bar.classList.add("show"); return; }
-    let heroVisible = true, finalVisible = false;
-    const update = () => bar.classList.toggle("show", !heroVisible && !finalVisible);
+    // elle se cache aussi sur le formulaire de réservation, où elle mène
+    const demande = document.getElementById("demande");
+    let heroVisible = true, finalVisible = false, demandeVisible = false;
+    const update = () => bar.classList.toggle("show", !heroVisible && !finalVisible && !demandeVisible);
     new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; update(); }).observe(hero);
     new IntersectionObserver(([e]) => { finalVisible = e.isIntersecting; update(); }).observe(final);
+    if (demande) new IntersectionObserver(([e]) => { demandeVisible = e.isIntersecting; update(); }).observe(demande);
   })();
 </script>
 
+<script src="js/site.js?v=1" defer></script>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
 </body>
 </html>

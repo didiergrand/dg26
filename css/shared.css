@@ -1,0 +1,31 @@
+/* Shared by every page: the palette dealt for the site (start.mjs: stone-blueprint, figtree; the ground set to white at the client's request), the logo,
+   and the cookie banner built by js/consent.js. */
+:root {
+  --p-bg: #ffffff; --p-surface: #f3f2ef; --p-ink: #26251e; --p-muted: #5a5850;
+  --p-accent: #2456d6; --p-accent-ink: #ffffff; --p-action: #2456d6; --p-action-ink: #ffffff;
+  --p-inv-bg: #26251e; --p-inv-surface: #313029; --p-inv-ink: #dfdedb; --p-inv-muted: #9e9d99;
+  --p-inv-accent: #dfdedb; --p-inv-accent-ink: #26251e; --p-inv-action: #dfdedb; --p-inv-action-ink: #26251e;
+  --font-display: "Figtree", system-ui, sans-serif;
+  --font-text: "Figtree", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.025em;
+  --display-tracking-xl: -0.035em;
+}
+
+.nav__logo svg, .footer .nav__logo svg { width: 32px; height: 32px; flex: none; margin-right: var(--s-3); }
+.nav__logo { display: inline-flex; align-items: center; }
+/* a narrow phone keeps the logo, the button and the menu on one bar */
+@media (max-width: 379px) { .nav .nav__name { display: none; } }
+/* the cookie banner built by js/consent.js, on the page's tokens */
+.cookie-banner { position: fixed; left: max(var(--gut), calc((100vw - 1280px) / 2)); bottom: var(--s-5); z-index: 30; max-width: 420px; background: var(--p-inv-bg); color: var(--p-inv-ink);
+  border: 1px solid var(--p-inv-surface); border-radius: var(--r-lg); padding: var(--s-5); font-size: var(--t-small); line-height: 1.45; }
+.cookie-banner[hidden] { display: none; }
+.cookie-banner p { margin: 0 0 var(--s-4); }
+.cookie-banner a, body.page .cookie-banner a { color: var(--p-inv-ink); text-decoration: underline; }
+/* on the dark banner the focus ring is light, so it shows */
+.cookie-banner :focus-visible { outline: 2px solid var(--p-inv-ink); outline-offset: 2px; }
+.cb-actions { display: flex; gap: var(--s-2); justify-content: flex-end; }
+.cb-actions button { font: 500 var(--t-body)/1 var(--font-text); min-height: 44px; border: 1px solid var(--line); border-radius: var(--r-btn); padding: 0 var(--s-5); cursor: pointer; }
+.cb-no { background: transparent; color: var(--p-inv-ink); border-color: var(--p-inv-muted); }
+.cb-yes { background: var(--p-inv-action); color: var(--p-inv-action-ink); border-color: var(--p-inv-action); }
+@media (max-width: 639px) { body.cb-open footer.closing { padding-bottom: calc(var(--padb) + 168px); } .cookie-banner { left: var(--s-3); right: var(--s-3); bottom: var(--s-3); max-width: none; } .cb-actions button { flex: 1; } }

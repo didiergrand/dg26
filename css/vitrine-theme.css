@@ -1,0 +1,88 @@
+/* Site vitrine in the home page's system: the kit in a cascade layer (vitrine.css, unlayered, keeps its layout),
+   the shared palette, and the few base rules this page used to take from style.css, now on the kit's tokens. */
+@import url("../assets/system.css") layer(kit);
+@import url("../assets/motion/motion.css") layer(kit);
+@import url("shared.css?v=3");
+
+@layer kit-reset {
+  main > :is(section, .section), footer.closing { height: auto; min-height: 0; padding: 0; }
+  footer.closing { padding: var(--s-9) 0 calc(var(--s-7) + var(--bar)); }
+  footer.closing > .wrap { height: auto; }
+}
+
+/* the tokens vitrine.css reads, mapped to the palette */
+:root {
+  --max: 1280px;
+  --radius: var(--r-btn);
+  --card: var(--p-surface);
+  --white: #ffffff;
+  --accent: var(--p-accent);
+  --accent-soft: color-mix(in oklab, var(--p-accent) 12%, var(--p-bg));
+  --ok: #1f8a4c;
+}
+/* vitrine.css sets --line and --ink-like greys on :root; the kit's own tokens stay the page's */
+body.lp { --line: color-mix(in oklab, var(--p-ink) 12%, transparent); --ink: var(--p-ink); }
+
+/* base rules once taken from style.css, kept inside the page's own content */
+:where(body.lp main) { color: var(--ink); }
+:where(body.lp main) img { display: block; max-width: 100%; height: auto; }
+:where(body.lp main) p { margin: 0 0 1em; }
+:where(body.lp main) a:where(:not(.btn, .btn-ghost, .work)) { color: var(--action); }
+:where(body.lp main) :where(h1, h2, h3, h4) { margin: 0; }
+:where(body.lp) .center { text-align: center; }
+:where(body.lp main, body.lp .sticky-cta) :where(strong, b) { font-weight: 500; }
+
+/* type: Figtree at the kit's weights, never 700 or 900 */
+body.lp main :is(h1, h2) { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking-xl); }
+body.lp .lp-hero h1 { font-weight: var(--display-weight); letter-spacing: var(--display-tracking-xl); }
+body.lp .lp-head h2 { font-weight: var(--display-weight); }
+body.lp main :is(h3, h4), body.lp .terms b, body.lp .opt .p, body.lp .work.yours .slot span, body.lp .step .when { font-weight: 500; }
+body.lp .plan .amount, body.lp .price-badge b { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking-xl); }
+body.lp .eyebrow-sm { text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--muted); }
+body.lp .lp-head p, body.lp .refonte .lead { color: var(--ink); }
+/* readable greys: body lines in the ink, small print and labels in the palette's muted tone (same selectors as vitrine.css, so this file wins) */
+.lp-head p, .tpl p, .work p, .works-note, .options > p, .opt p, .terms span, .seo-local, .avail-line, .has-site, .refonte .lead,
+.diag form > p, .diag-ok p, .mini-head p, .mini-ok p, #tarif .plan .desc { color: var(--p-ink); }
+.lp-hero .fine, .q figcaption, .diag .fine, .mini .fine, #tarif .plan .billing { color: var(--p-muted); }
+
+/* buttons: the page's primary, the same as the header's */
+body.lp :is(main, .sticky-cta) .btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2); min-height: 44px; padding: 0 var(--s-5);
+  border: 0; border-radius: var(--r-btn); background: var(--action); color: var(--action-ink); font: 500 var(--t-body)/1 var(--font-text); text-decoration: none; cursor: pointer;
+}
+body.lp main .btn.btn-lg { min-height: 52px; padding: 0 var(--s-6); font-size: 17px; }
+body.lp main .btn:hover { text-decoration: none; background: color-mix(in oklab, var(--action) 88%, black); }
+body.lp main .btn.btn-light, body.lp .sticky-cta .btn { background: var(--p-bg); color: var(--p-ink); }
+body.lp .btn-ghost { border-radius: var(--r-btn); border: 1px solid var(--line-strong); color: var(--ink); font-weight: 500; min-height: 52px; display: inline-flex; align-items: center; padding: 0 var(--s-6); text-decoration: none; }
+body.lp .btn-ghost:hover { background: var(--surface); text-decoration: none; }
+
+/* grounds: the warm stone page, cards on the surface tone */
+body.lp { background: var(--p-bg); }
+body.lp :is(.feature, .terms) { border-radius: var(--r-lg); }
+:where(body.lp) .chip { background: var(--surface); }
+:where(body.lp) .chip.accent { background: var(--accent-soft); color: var(--p-accent); }
+
+/* the page sits under the fixed header */
+body.lp main { padding-top: var(--nav); }
+/* the kit's .grid spans every child across; this page's own grids place their children themselves */
+body.lp main .grid > * { grid-column: auto; }
+/* the price in the headline stays inline */
+body.lp main h1 .price { display: inline; }
+/* the questions (.lp-faq, its own accordion) in the page's type */
+body.lp .lp-faq summary { font: 500 var(--t-lead)/1.4 var(--font-text); }
+
+/* the closing call to action: centred on its dark panel, its links white */
+body.lp .final { padding: clamp(56px, 8vw, 128px) clamp(22px, 5vw, 80px); border-radius: var(--r-lg); }
+body.lp .final h2 { font-size: clamp(32px, 4.4vw, 64px); line-height: 1.04; letter-spacing: var(--display-tracking-xl); margin: var(--s-5) auto var(--s-5); max-width: 16ch; text-wrap: balance; }
+body.lp .final > p:not(.small) { font-size: var(--t-lead); line-height: 1.5; margin-bottom: var(--s-7); }
+body.lp .final .small a { color: var(--p-inv-ink); }
+
+/* between pages: the same soft fade as the home page (css/home-motion.css) */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) { animation: hm-page-out 240ms cubic-bezier(.2, .8, .2, 1) both; }
+  ::view-transition-new(root) { animation: hm-page-in 520ms cubic-bezier(.22, 1, .36, 1) both; }
+}
+@media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
+@keyframes hm-page-out { to { opacity: 0; } }
+@keyframes hm-page-in { from { opacity: 0; translate: 0 16px; } }

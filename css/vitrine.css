@@ -200,19 +200,19 @@
 .q figcaption { font-size: 14px; font-weight: 500; color: #6b6f7a; }
 
 /* FAQ */
-.faq { max-width: 780px; margin: 0 auto; }
-.faq details { border-bottom: 1px solid var(--line); }
-.faq summary {
+.lp-faq { max-width: 780px; margin: 0 auto; }
+.lp-faq details { border-bottom: 1px solid var(--line); }
+.lp-faq summary {
   cursor: pointer; list-style: none; padding: 22px 40px 22px 0; position: relative;
   font-size: 18px; font-weight: 500; letter-spacing: -0.2px;
 }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after {
+.lp-faq summary::-webkit-details-marker { display: none; }
+.lp-faq summary::after {
   content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
   font-size: 26px; font-weight: 300; transition: transform .2s;
 }
-.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-.faq details p { margin: 0 0 22px; max-width: 680px; }
+.lp-faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.lp-faq details p { margin: 0 0 22px; max-width: 680px; }
 
 /* CTA final */
 .final {
