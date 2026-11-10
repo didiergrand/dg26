@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /diagnostic.php
+
+Sitemap: https://www.digitalgarage.ch/sitemap.xml

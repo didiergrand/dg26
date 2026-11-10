@@ -69,7 +69,7 @@
     box.hidden = true;
     box.innerHTML =
       "<p>Ce site utilise des cookies&nbsp;: " + tools.join(" et ") + ". Vous pouvez les refuser. " +
-      '<a href="confidentialite.html">En savoir plus</a></p>' +
+      '<a href="confidentialite">En savoir plus</a></p>' +
       '<div class="cb-actions"><button type="button" class="cb-no" data-choice="non">Refuser</button>' +
       '<button type="button" class="cb-yes" data-choice="oui">OK</button></div>';
     document.body.appendChild(box);

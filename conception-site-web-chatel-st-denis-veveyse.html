@@ -7,13 +7,13 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Création de sites internet à Châtel-St-Denis et en Veveyse pour PME, indépendants et associations : conseil, design UX/UI, gestion de projet web et SEO local.">
   <link rel="canonical" href="https://www.digitalgarage.ch/conception-site-web-chatel-st-denis-veveyse">
+<meta property="og:url" content="https://www.digitalgarage.ch/conception-site-web-chatel-st-denis-veveyse">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.digitalgarage.ch/images/og-image.png">
   <link rel="icon" href="images/favicon.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/figtree.css">
   <link rel="stylesheet" href="css/theme.css?v=4">
   <link rel="stylesheet" href="css/site-motion.css?v=1">
   <script>document.documentElement.classList.add('hm-enter');setTimeout(()=>document.documentElement.classList.add('hm-enter-done'),700)</script>
@@ -24,16 +24,16 @@
 <header class="nav">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Aller au contenu</a>
-    <a class="nav__logo" href="index.html" aria-label="Accueil Digitalgarage">
+    <a class="nav__logo" href="./" aria-label="Accueil Digitalgarage">
       <svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg><span class="nav__name">Didier Grand</span></a>
     <nav class="nav__links" aria-label="Navigation principale">
-      <div class="nav__item"><a class="nav__link" href="index.html#competences">Compétences</a></div>
-      <div class="nav__item"><a class="nav__link" href="index.html#realisations">Réalisations</a></div>
-      <div class="nav__item"><a class="nav__link" href="index.html#engagement">Engagement</a></div>
-      <div class="nav__item"><a class="nav__link" href="site-vitrine.html">Site vitrine</a></div>
+      <div class="nav__item"><a class="nav__link" href="site-vitrine">Site vitrine</a></div>
+      <div class="nav__item"><a class="nav__link" href="./#competences">Compétences</a></div>
+      <div class="nav__item"><a class="nav__link" href="./#realisations">Réalisations</a></div>
+      <div class="nav__item"><a class="nav__link" href="./#engagement">Engagement</a></div>
     </nav>
     <div class="nav__actions">
-      <a class="btn btn--primary" href="contact.html">Me contacter</a>
+      <a class="btn btn--primary" href="contact">Me contacter</a>
     </div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -45,7 +45,7 @@
 
   <header class="page-head">
     <h1 class="display">Conception de sites web<br>à Châtel-St-Denis et en Veveyse</h1>
-    <h2 class="subtitle">Plus de 20 ans d'experience en création de sites internet</h2>
+    <h2 class="subtitle">Plus de 20 ans d’expérience en création de sites internet</h2>
   </header>
 
   <figure class="figure full" style="margin-top:0">
@@ -68,7 +68,7 @@
     <section class="cta-box">
       <h2 class="section-title">Vous avez un projet web dans la région de Châtel-St-Denis&nbsp;?</h2>
       <p class="lead">Parlons-en, je suis proche de chez vous.</p>
-      <a class="btn" href="contact.html">Contactez-moi</a>
+      <a class="btn" href="contact">Contactez-moi</a>
     </section>
   </article>
 
@@ -95,7 +95,7 @@
     <div class="body">
       <h2 class="h-32" style="margin-bottom:20px">Réalisation récente en Veveyse</h2>
       <p>Après avoir conçu les sites des communes voisines de St-Martin, Semsales, Attalens, Granges et Bossonnens, j’ai été recommandé à la commune de Remaufens pour réaliser la refonte complète de leur site internet afin de moderniser leur présence en ligne tout en offrant plus d’autonomie à l’administration communale.</p>
-      <a class="more" href="remaufens.html">
+      <a class="more" href="remaufens">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         En savoir plus
       </a>
@@ -111,7 +111,7 @@
   </section>
 
   <nav class="back">
-    <a href="index.html" aria-label="Retour à l'accueil">
+    <a href="./" aria-label="Retour à l'accueil">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
     </a>
   </nav>
@@ -125,24 +125,24 @@
         <h2 id="close-h">Contactez-moi pour commencer une nouvelle aventure créative.</h2>
         <p>Discutons de votre projet&nbsp;: <a class="link" href="mailto:dg@digitalgarage.ch">dg@digitalgarage.ch</a> · <a class="link" href="tel:+41786535890">078 653 58 90</a></p>
       </div>
-      <a class="btn btn--primary btn--xl btn--wide" href="contact.html">Me contacter<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      <a class="btn btn--primary btn--xl btn--wide" href="contact">Me contacter<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
     </div>
     <div class="closing__links">
       <div class="grid">
         <div class="span-4 stack-4">
-          <a class="nav__logo" href="index.html"><svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg>Didier Grand</a>
-          <p>Créatif digital · Project Management · UX · Frontend. Spécialisé dans les plateformes et expériences digitales complexes.</p>
+          <a class="nav__logo" href="./"><svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg>Didier Grand</a>
+          <p>Sites internet pour les PME, indépendants et associations de Suisse romande.</p>
         </div>
-        <div class="span-2 footer__col"><h3>Navigation</h3><ul><li><a href="index.html">Accueil</a></li><li><a href="index.html#competences">Compétences</a></li><li><a href="index.html#realisations">Réalisations</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-        <div class="span-3 footer__col"><h3>Réalisations</h3><ul><li><a href="projet-scott-product-card.html">Product card - UX/UI Design</a></li><li><a href="site-web-jcis-forum-2026.html">JCIS Forum 2026</a></li><li><a href="remaufens.html">Commune de Remaufens</a></li><li><a href="conception-site-web-chatel-st-denis-veveyse.html">Création de site internet à Châtel-St-Denis et en Veveyse</a></li></ul></div>
-        <div class="span-3 footer__col"><h3>Offre</h3><ul><li><a href="site-vitrine.html">Site vitrine dès CHF 100.– / mois</a></li><li><a href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Navigation</h3><ul><li><a href="./">Accueil</a></li><li><a href="./#competences">Compétences</a></li><li><a href="./#realisations">Réalisations</a></li><li><a href="contact">Contact</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Réalisations</h3><ul><li><a href="projet-scott-product-card">Product card - UX/UI Design</a></li><li><a href="site-web-jcis-forum-2026">JCIS Forum 2026</a></li><li><a href="remaufens">Commune de Remaufens</a></li><li><a href="conception-site-web-chatel-st-denis-veveyse">Création de site internet à Châtel-St-Denis et en Veveyse</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Offre</h3><ul><li><a href="site-vitrine">Site vitrine dès CHF 100.– / mois</a></li><li><a href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       </div>
       <div class="footer__legal">
         <span>© Digitalgarage – Didier Grand</span>
-        <a href="confidentialite.html">Protection des données</a>
-        <a href="conditions-generales.html">Conditions générales</a>
+        <a href="confidentialite">Protection des données</a>
+        <a href="conditions-generales">Conditions générales</a>
         <a href="#cookies" id="cookies">Cookies</a>
-        <span>Le Jordil · Veveyse · Fribourg · Suisse romande</span>
+        <span>Le Jordil, 1609 St-Martin (FR) · Veveyse · Suisse romande</span>
         <span>Les noms de produits et logos sont des marques de leurs propriétaires</span>
       </div>
     </div>

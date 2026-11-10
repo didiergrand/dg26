@@ -29,3 +29,6 @@
 .cb-no { background: transparent; color: var(--p-inv-ink); border-color: var(--p-inv-muted); }
 .cb-yes { background: var(--p-inv-action); color: var(--p-inv-action-ink); border-color: var(--p-inv-action); }
 @media (max-width: 639px) { body.cb-open footer.closing { padding-bottom: calc(var(--padb) + 168px); } .cookie-banner { left: var(--s-3); right: var(--s-3); bottom: var(--s-3); max-width: none; } .cb-actions button { flex: 1; } }
+
+/* encart du portrait : une information par ligne */
+.ly-float__row--stack { flex-direction: column; align-items: flex-start; gap: 2px; }
