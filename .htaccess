@@ -1,0 +1,4 @@
+# Redirige digitalgarage.ch (sans www) vers https://www.digitalgarage.ch (301)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^digitalgarage\.ch$ [NC]
+RewriteRule ^(.*)$ https://www.digitalgarage.ch/$1 [R=301,L]
