@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Création de site internet en Veveyse | Digitalgarage – Didier Grand</title>
-<meta name="description" content="Sites internet pour PME, artisans et associations en Veveyse, Fribourg et Suisse romande. Site vitrine dès CHF 100.– par mois, sans frais de départ.">
+<meta name="description" content="Gestion de projets web, sites vitrines, suivi et accompagnement pour les communes, PME et associations de la Veveyse, de Fribourg et de Suisse romande.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Création de site internet en Veveyse | Digitalgarage – Didier Grand">
-<meta property="og:description" content="Sites internet pour PME, artisans et associations en Veveyse, Fribourg et Suisse romande. Site vitrine dès CHF 100.– par mois, sans frais de départ.">
+<meta property="og:description" content="Gestion de projets web, sites vitrines, suivi et accompagnement pour les communes, PME et associations de la Veveyse, de Fribourg et de Suisse romande.">
 <meta property="og:image" content="https://www.digitalgarage.ch/images/og-image.png">
 <meta property="og:url" content="https://www.digitalgarage.ch/">
 <meta name="twitter:card" content="summary_large_image">
@@ -29,8 +29,8 @@
 <link rel="stylesheet" href="assets/moments/pinned-chapters/moment.css">
 <!-- page CSS: only what sits inside a visual (the logo, the vitrine wall, tool icons) and the cookie banner of js/consent.js -->
 <style>
-  /* the vitrine row of the work list: six client sites as one wall inside the frame */
-  .frame > .wall.wall { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 2px; overflow: hidden; background: var(--g-dark, #26251e); }
+  /* the vitrine row of the work list: eight client sites as one wall inside the frame */
+  .frame > .wall.wall { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, minmax(0, 1fr)); gap: 2px; overflow: hidden; background: var(--g-dark, #26251e); }
   .wall[hidden] { display: none; }
   .wall > img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
   /* tools named in the skills: real icons beside their names */
@@ -50,10 +50,6 @@
   /* from 1024 the method's photograph and the quotes' pictures run down to the section's foot */
   @media (min-width: 1024px) {
     #methode .wrap.grid { grid-template-rows: minmax(0, 1fr); align-content: stretch; }
-    #engagement .wrap > .grid { align-items: stretch; }
-    #engagement .group .grid { align-content: start; row-gap: var(--s-7); }
-    #engagement .wrap > .grid > div { display: flex; flex-direction: column; }
-    #engagement .wrap > .grid > div > .frame { flex: 1 1 auto; }
   }
   /* the clients' names set large, run on as one paragraph of type */
   .names { list-style: none; margin: 0 0 var(--s-7); padding: 0; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5);
@@ -63,13 +59,48 @@
   @media (max-width: 1023px) { main .frame--photo.frame--fill { --ratio: 75%; height: auto; } #clients .frame { --ratio: 50%; } #realisations .frame--photo.frame--fill { --ratio: 56.25%; } }
   @media (max-width: 639px) { #clients .frame { --ratio: 75%; } #realisations .frame--photo.frame--fill { --ratio: 75%; } }
   /* the quotes' pictures grow shallower as the screen narrows, so each quote stays on its screen */
-  @media (max-width: 1279px) { #engagement .frame--stage { --ratio: 40%; } }
-  @media (min-width: 640px) and (max-width: 1023px) { #engagement .frame--stage { --ratio: 28%; } #engagement .group .grid > .span-6 { grid-column: span 6; } #engagement .group .grid { grid-template-columns: repeat(12, minmax(0, 1fr)); } }
   /* a phone: the work section's two groups keep their full height and stack */
   @media (max-width: 639px) { #realisations .wrap > *, #realisations .group > .fill { flex: none; } }
   /* a phone: the headline a step smaller and one hero button, so the first screen holds the portrait */
-  @media (max-width: 639px) { #engagement .frame--stage { --ratio: 30%; } .hero h1 { font-size: 36px; } .hero .btn--secondary { display: none; } }
+  @media (max-width: 639px) { .hero h1 { font-size: 36px; } .hero .btn--secondary { display: none; } }
   #realisations .rows a { display: block; padding-block: var(--s-2); }
+  /* the clients' logos, white on the dark band, running slowly; a pause button, still under reduced motion */
+  .clogos { position: relative; overflow: hidden; margin: 0 0 var(--s-7); flex: none; padding-block: var(--s-2); }
+  .clogos__track { display: flex; width: max-content; animation: clogos-run 50s linear infinite; }
+  .clogos__track ul { display: flex; align-items: center; gap: 80px; height: 72px; min-height: 72px; margin: 0; padding: 0 40px; list-style: none; }
+  .clogos__track li { flex: none; }
+  .clogos__track img { display: block; height: 52px; width: auto; max-width: none; }
+  .logo-txt { display: flex; align-items: center; gap: 12px; font: 500 16px/1.15 var(--font-text); color: #fff; white-space: nowrap; }
+  .logo-word { font: 600 24px/1 var(--font-text); color: #fff; white-space: nowrap; letter-spacing: -0.01em; }
+  .clogos:hover .clogos__track, .clogos.is-paused .clogos__track { animation-play-state: paused; }
+  .clogos__pause { position: absolute; right: 0; bottom: 0; font: 500 13px/1 var(--font-text); color: var(--p-inv-ink); background: var(--p-inv-bg); border: 1px solid var(--p-inv-muted); border-radius: 999px; padding: 6px 12px; min-height: 32px; cursor: pointer; opacity: 0; transition: opacity .2s; }
+  .clogos:hover .clogos__pause, .clogos__pause:focus-visible, .clogos.is-paused .clogos__pause { opacity: 1; }
+  @keyframes clogos-run { to { transform: translateX(-50%); } }
+  @media (max-width: 639px) { .clogos__track ul { height: 60px; min-height: 60px; } .clogos__track img { height: 40px; } .clogos__track ul { gap: 48px; padding: 0 24px; } .clogos__pause { opacity: 1; position: static; margin-top: var(--s-4); } }
+  @media (prefers-reduced-motion: reduce) {
+    .clogos__track { animation: none; width: auto; } .clogos__track ul { flex-wrap: wrap; gap: var(--s-6) var(--s-8); padding: 0; }
+    .clogos__track ul[aria-hidden] { display: none; } .clogos__pause { display: none; }
+  }
+  /* the clients' words: two cards, the quote set large, the client's logo in ink beside the name */
+  .avis__card { margin: 0; padding: var(--s-7); gap: var(--s-5); justify-content: space-between; }
+  .avis__mark { display: block; height: 0.5em; font: 400 96px/1 var(--font-display); color: var(--p-action); }
+  .avis__card blockquote { margin: 0; font: var(--display-weight) var(--t-h3)/1.3 var(--font-display); letter-spacing: var(--display-tracking); color: var(--ink); text-wrap: pretty; }
+  .avis__who { display: flex; align-items: center; gap: var(--s-4); padding-top: var(--s-5); border-top: 1px solid var(--line); font: 400 var(--t-small)/1.45 var(--font-text); color: var(--ink); }
+  .avis__who img { height: 36px; width: auto; max-width: 120px; object-fit: contain; filter: brightness(0); opacity: .85; flex: none; }
+  @media (max-width: 639px) { .avis__card { padding: var(--s-5); } .avis__card blockquote { font-size: 20px; } .avis__mark { font-size: 72px; } }
+  /* the three offers as plan cards: the price set large, one row height; the follow-up line under them */
+  .offres .plan { padding: var(--s-6); }
+  .card.plan > .plan__price { display: flex; align-items: baseline; gap: var(--s-2); margin: var(--s-4) 0 0; font: var(--display-weight) 44px/1 var(--font-display); letter-spacing: var(--display-tracking-xl); color: var(--ink); max-width: none; }
+  .card.plan > .plan__price small { font: 400 var(--t-small)/1 var(--font-text); letter-spacing: 0; color: var(--muted); }
+  .card.plan > .plan__for { margin-top: var(--s-3); }
+  .offres .plan__btn { margin-top: var(--s-5); }
+  .offres .plan__btn--primary { background: var(--p-action); color: var(--p-action-ink); }
+  .offres .plan__list { gap: var(--s-2); margin-top: var(--s-5); }
+  @media (max-width: 639px) { .offres .plan__list { display: none; } .card.plan > .plan__price { font-size: 36px; } }
+  .offres-suivi { margin: var(--s-6) 0 0; max-width: 72ch; }
+  @media (min-width: 640px) and (max-width: 1023px) { #offres { --h: 2 } }
+  @media (min-width: 1024px) and (max-width: 1279px) { #offres .grid > .card { grid-column: span 4; } }
+  @media (max-width: 639px) { #offres { --hm: 2 } }
 </style>
 
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
@@ -134,10 +165,10 @@
     <a class="nav__logo" href="./" aria-label="Accueil Digitalgarage">
       <svg viewBox="0 0 45 45" aria-hidden="true"><circle cx="22.5" cy="22.5" r="22.5" fill="#fff"/><path d="M8.842 35.587c0 .8.65 1.45 1.45 1.45h13.069L8.842 22.518Z" fill="#111727"/><path d="M23.361 7.998H10.292c-.8 0-1.45.65-1.45 1.45v13.07h13.069c.8 0 1.45.65 1.45 1.45v13.069c8.016 0 14.52-6.504 14.52-14.52 0-8.015-6.504-14.519-14.52-14.519" fill="#111727"/></svg><span class="nav__name">Didier Grand</span></a>
     <nav class="nav__links" aria-label="Navigation principale">
-      <div class="nav__item"><a class="nav__link" href="site-vitrine">Site vitrine</a></div>
+      <div class="nav__item"><a class="nav__link" href="./#offres">Offres</a></div>
       <div class="nav__item"><a class="nav__link" href="./#competences">Compétences</a></div>
       <div class="nav__item"><a class="nav__link" href="./#realisations">Réalisations</a></div>
-      <div class="nav__item"><a class="nav__link" href="./#engagement">Engagement</a></div>
+      <div class="nav__item"><a class="nav__link" href="./#engagement">Avis</a></div>
     </nav>
     <div class="nav__actions">
       <a class="btn btn--primary" href="contact">Me contacter</a>
@@ -155,15 +186,15 @@
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
         <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Sites internet · Veveyse et Suisse romande</p>
-        <h1 id="hero-h">Votre site internet, clair et professionnel.</h1>
-        <p class="hero__lead">Pour les entreprises et associations de la région&nbsp;: je crée votre site, je le mets en ligne et je m’en occupe ensuite. Communes, PME, artisans et sociétés locales me font déjà confiance.</p>
+        <h1 id="hero-h">Design web et gestion de projet</h1>
+        <p class="hero__lead">Pour les communes, entreprises et associations de la région&nbsp;: je conçois votre site, je le mets en ligne et je m’en occupe ensuite. Basé à St-Martin, en Veveyse.</p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="site-vitrine">Site vitrine dès CHF 100.– / mois<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-          <a class="btn btn--secondary" href="#realisations">Voir des réalisations</a>
+          <a class="btn btn--primary" href="contact">Parlons de votre projet<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="#offres">Voir mes offres</a>
         </div>
       </div>
       <div class="hero__media span-6 start-7">
-        <img src="images/didier-grand.jpg" alt="Portrait de Didier Grand" width="1024" height="1024" style="--ly-pos: 50% 30%" fetchpriority="high" data-source="client" data-subject="Didier Grand">
+        <img src="images/didier-grand.jpg" alt="Portrait de Didier Grand" width="1400" height="1400" style="--ly-pos: 50% 30%" fetchpriority="high" data-source="client" data-subject="Didier Grand">
         <div class="ly-float">
           <div class="ly-float__row ly-float__row--stack"><span>Diplôme fédéral</span><span>20+ ans d’expérience web</span></div>
           <div class="ly-float__title">Didier Grand</div>
@@ -172,14 +203,69 @@
     </div></div>
   </section>
 
-  <!-- CLIENTS: the names set large, then the region they come from as a wide picture -->
-  <section class="section" id="clients" aria-labelledby="clients-h">
+  <!-- OFFRES: three ways to work together, a card each with its picture and its link -->
+  <section class="section" id="offres" aria-labelledby="offres-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="clients-h">Quelques clients récents</h2>
+        <h2 id="offres-h">Trois offres, selon votre projet</h2>
+        <p>Un site sur mesure, un site vitrine ou un nouveau design pour votre site actuel, avec un seul interlocuteur.</p>
+      </div>
+      <div class="grid grid--top offres">
+        <article class="card card--plan plan span-4">
+          <h3 class="plan__name">Site vitrine</h3>
+          <p class="plan__price"><small>dès</small>CHF 100.–<small>/ mois</small></p>
+          <p class="plan__for">Pour les indépendants, petites PME et associations.</p>
+          <a class="plan__btn" href="site-vitrine">Voir l’offre site vitrine</a>
+          <ul class="plan__list">
+            <li>Aucun frais de départ</li>
+            <li>En ligne 2 semaines après le rendez-vous</li>
+            <li>Aide à la rédaction et mises à jour incluses</li>
+            <li>Engagement de 24 mois</li>
+          </ul>
+        </article>
+        <article class="card card--plan plan is-featured span-4">
+          <h3 class="plan__name">Site sur mesure <span class="plan__badge">Communes et PME</span></h3>
+          <p class="plan__price"><small>dès</small>CHF 9'600.–</p>
+          <p class="plan__for">Pour les communes, institutions et entreprises établies.</p>
+          <a class="plan__btn plan__btn--primary" href="site-sur-mesure">Voir l’offre sur mesure</a>
+          <ul class="plan__list">
+            <li>Atelier de cadrage et analyse des besoins</li>
+            <li>Design sur mesure, validé avec vous</li>
+            <li>Réalisation et coordination des développeurs</li>
+            <li>Formation de votre équipe</li>
+          </ul>
+        </article>
+        <article class="card card--plan plan span-4">
+          <h3 class="plan__name">Refonte</h3>
+          <p class="plan__price"><small>dès</small>CHF 3'600.–</p>
+          <p class="plan__for">Pour un site existant qui a pris un coup de vieux.</p>
+          <a class="plan__btn" href="refonte">Voir l’offre refonte</a>
+          <ul class="plan__list">
+            <li>Nouveau design et nouvelle structure</li>
+            <li>Vos contenus repris et améliorés</li>
+            <li>Parfait sur mobile</li>
+            <li>Un diagnostic gratuit pour commencer</li>
+          </ul>
+        </article>
+      </div>
+      <p class="offres-suivi"><b>Et ensuite&nbsp;?</b> Je m’occupe de la maintenance, des mises à jour et des modifications de votre site, dès CHF 60.– par mois. <a href="contact">Parlons-en</a></p>
+    </div>
+  </section>
+
+  <!-- CLIENTS: the names set large, then the region they come from as a wide picture -->
+  <section class="section ground-inverse" id="clients" aria-labelledby="clients-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="clients-h">Mes clients</h2>
         <p>Communes, PME, associations et événements de la région&nbsp;: chaque projet reçoit la même exigence. Project Management, UX/UI Design et Frontend, du design au code avec Figma, React et WordPress.</p>
       </div>
-      <ul class="names"><li>JCIS Forum 2026</li><li>Commune de Remaufens</li><li>Commune de Semsales</li><li>Commune d’Attalens</li><li>Commune de St-Martin</li><li>Commune de Granges</li><li>Commune de Bossonnens</li><li>Hôtel Le Manoir</li><li>Garage Girard</li><li>J. Vuichard SA</li><li>Fanfare L’Edelweiss</li><li>Désalpe de Semsales</li><li>MaudePhoto</li></ul>
+      <div class="clogos" data-logos>
+        <div class="clogos__track">
+          <ul aria-label="Clients"><li><img src="images/logos/jcis-forum-2026.png" alt="JCIS Forum 2026" width="327" height="120" loading="lazy"></li><li><img src="images/logos/remaufens.png" alt="Commune de Remaufens" width="338" height="120" loading="lazy"></li><li><img src="images/logos/semsales.png" alt="Commune de Semsales" width="445" height="120" loading="lazy"></li><li><img src="images/logos/attalens.png" alt="Commune d’Attalens" width="281" height="120" loading="lazy"></li><li><img src="images/logos/st-martin.png" alt="Commune de Saint-Martin" width="388" height="120" loading="lazy"></li><li class="logo-txt"><img src="images/logos/granges.png" alt="" width="120" height="120" loading="lazy"><span>Commune de<br>Granges</span></li><li class="logo-txt"><img src="images/logos/bossonnens.png" alt="" width="102" height="120" loading="lazy"><span>Commune de<br>Bossonnens</span></li><li><img src="images/logos/hotel-le-manoir.png" alt="Hôtel Le Manoir" width="165" height="120" loading="lazy"></li><li><img src="images/logos/etude-mooser.svg" alt="Étude Mooser" width="226" height="157" loading="lazy"></li><li><img src="images/logos/edelparc26.png" alt="EDEL’PARC 26" width="179" height="120" loading="lazy"></li><li><img src="images/logos/garage-girard.png" alt="Garage Girard" width="287" height="120" loading="lazy"></li><li><img src="images/logos/vuichard.png" alt="J. Vuichard SA" width="282" height="120" loading="lazy"></li><li><img src="images/logos/demierre.png" alt="Demierre Entretien et Mécanique" width="129" height="120" loading="lazy"></li></ul>
+          <ul aria-hidden="true"><li><img src="images/logos/jcis-forum-2026.png" alt="" width="327" height="120" loading="lazy"></li><li><img src="images/logos/remaufens.png" alt="" width="338" height="120" loading="lazy"></li><li><img src="images/logos/semsales.png" alt="" width="445" height="120" loading="lazy"></li><li><img src="images/logos/attalens.png" alt="" width="281" height="120" loading="lazy"></li><li><img src="images/logos/st-martin.png" alt="" width="388" height="120" loading="lazy"></li><li class="logo-txt"><img src="images/logos/granges.png" alt="" width="120" height="120" loading="lazy"><span>Commune de<br>Granges</span></li><li class="logo-txt"><img src="images/logos/bossonnens.png" alt="" width="102" height="120" loading="lazy"><span>Commune de<br>Bossonnens</span></li><li><img src="images/logos/hotel-le-manoir.png" alt="" width="165" height="120" loading="lazy"></li><li><img src="images/logos/etude-mooser.svg" alt="" width="226" height="157" loading="lazy"></li><li><img src="images/logos/edelparc26.png" alt="" width="179" height="120" loading="lazy"></li><li><img src="images/logos/garage-girard.png" alt="" width="287" height="120" loading="lazy"></li><li><img src="images/logos/vuichard.png" alt="" width="282" height="120" loading="lazy"></li><li><img src="images/logos/demierre.png" alt="" width="129" height="120" loading="lazy"></li></ul>
+        </div>
+        <button class="clogos__pause" type="button" aria-pressed="false">Pause</button>
+      </div>
       <div class="frame frame--photo fill">
         <img class="frame__img" src="images/home/chatel-st-denis.webp" width="1600" height="800" alt="La grand-rue de Châtel-St-Denis au crépuscule, en Veveyse" loading="lazy" style="object-position: 50% 62%" data-source="client" data-subject="Châtel-St-Denis">
       </div>
@@ -234,7 +320,7 @@
         </ol>
       </div>
       <div class="frame frame--photo frame--fill span-6 start-7">
-        <img class="frame__img" src="images/home/didier-grand-contact.webp" width="1024" height="585" alt="Didier Grand au travail sur une maquette, à son bureau" loading="lazy" style="object-position: 30% 50%" data-source="client" data-subject="Didier Grand at work">
+        <img class="frame__img" src="images/didier-grand-contact.jpg" width="1600" height="915" alt="Didier Grand au travail sur son ordinateur portable, à son bureau" loading="lazy" style="object-position: 30% 50%" data-source="client" data-subject="Didier Grand at work">
       </div>
     </div>
   </section>
@@ -248,7 +334,7 @@
         </div>
         <div class="grid grid--top fill" data-peek>
           <ul class="rows span-5">
-            <li data-peek-to="vitrine"><a href="site-vitrine"><span class="rows__name">Un site pro pour les PME et associations</span></a><p>Nouveau · Sites vitrines. Hôtel, garage, menuiserie, photographe, fanfare… Sans frais de départ, en ligne en 2 semaines, aide à la saisie et mises à jour incluses.</p><span class="rows__value">CHF 100.– / mois</span></li>
+            <li data-peek-to="vitrine"><a href="site-vitrine"><span class="rows__name">Un site pro pour les PME et associations</span></a><p>Nouveau · Sites vitrines. Hôtel, étude d’avocats, garage, menuiserie, fanfare, giron des musiques… Sans frais de départ, en ligne en 2 semaines, aide à la saisie et mises à jour incluses.</p><span class="rows__value">CHF 100.– / mois</span></li>
             <li data-peek-to="jcis"><a href="site-web-jcis-forum-2026"><span class="rows__name">JCIS Forum 2026</span></a><p>Design UI · WordPress. Un univers graphique inspiré du cinéma, conçu et mis en ligne en à peine deux mois pour un événement national.</p><span class="rows__value">2 mois</span></li>
             <li data-peek-to="remaufens"><a href="remaufens"><span class="rows__name">Commune de Remaufens</span></a><p>Project management · UX · WordPress. Refonte complète du site officiel&nbsp;: des parcours simplifiés pour les habitants et une administration autonome.</p><span class="rows__value">Refonte</span></li>
           </ul>
@@ -260,6 +346,8 @@
               <img src="images/vitrine/fanfare-semsales.webp" alt="Site vitrine de la fanfare de Semsales" width="1200" height="750">
               <img src="images/vitrine/demierremecanique.webp" alt="Site vitrine de Demierre Mécanique" width="1200" height="750">
               <img src="images/vitrine/desalpe-semsales.webp" alt="Site vitrine de la Désalpe de Semsales" width="1200" height="750">
+              <img src="images/vitrine/etude-mooser.webp" alt="Site de l’Étude Mooser, avocats et notaire à Bulle" width="1200" height="750">
+              <img src="images/vitrine/edelparc26.webp" alt="Site d’EDEL’PARC 26, Giron des musiques de la Veveyse" width="1200" height="750">
             </div>
             <img class="frame__img" data-peek-for="jcis" src="images/home/jcis-mockup.webp" alt="Design et dev du site internet JCIS Forum 2026" width="1000" height="1000" hidden style="background:#fff;object-fit:contain">
             <img class="frame__img" data-peek-for="remaufens" src="images/home/remaufens-mockup.webp" alt="Refonte complète du site internet de la commune de Remaufens" width="1000" height="1000" hidden style="background:#fff;object-fit:contain">
@@ -270,34 +358,22 @@
   </section>
 
   <!-- ENGAGEMENT: two screens: the four values, then each quote under the project it speaks of -->
-  <section class="section g2" id="engagement" aria-labelledby="engagement-h">
+  <section class="section ground-surface" id="engagement" aria-labelledby="engagement-h">
     <div class="wrap">
-      <div class="group">
-        <div class="section-head">
-          <h2 id="engagement-h">Un partenaire, pas un prestataire.</h2>
-        </div>
-        <div class="grid grid--top">
-          <div class="span-6 stack-2"><h3 class="t-card">Écoute et proximité</h3><p>Un interlocuteur unique, du premier rendez-vous à la mise en ligne, et un contact direct tout au long du projet.</p></div>
-          <div class="span-6 start-7 stack-2"><h3 class="t-card">Des délais tenus</h3><p>Une organisation rigoureuse et des décisions rapides&nbsp;: le site du JCIS Forum 2026 a été livré en à peine deux mois.</p></div>
-          <div class="span-6 stack-2"><h3 class="t-card">Votre autonomie</h3><p>Des outils simples et une formation pour gérer vos contenus sans dépendre d’intervenants externes.</p></div>
-          <div class="span-6 start-7 stack-2"><h3 class="t-card">L’exigence du détail</h3><p>Clarté, ergonomie, rythme éditorial&nbsp;: chaque détail compte pour une expérience réussie.</p></div>
-        </div>
+      <div class="section-head">
+        <h2 id="engagement-h">Ce que disent mes clients</h2>
       </div>
-      <div class="grid grid--top">
-        <div class="span-6 stack-5">
-          <figure class="quote">
-          <blockquote>J’ai beaucoup apprécié travailler avec Digitalgarage. Didier est à la fois efficace, minutieux et force de proposition. La communication a toujours été régulière et fluide, et les délais ont été scrupuleusement respectés. Je recommande vivement&nbsp;!</blockquote>
-          <figcaption class="person"><span class="avatar" aria-hidden="true">M</span><span><b>Mégane</b><br>Responsable communication – JCIS Veveyse</span></figcaption>
-          </figure>
-          <div class="frame frame--photo frame--stage"><img class="frame__img" src="images/home/jcis-hero.webp" alt="Le clap de cinéma, visuel du JCIS Forum 2026" width="1200" height="600" loading="lazy" data-source="client" data-subject="JCIS Forum 2026"></div>
-        </div>
-        <div class="span-6 start-7 stack-5">
-          <figure class="quote">
-          <blockquote>La Commune de Remaufens a collaboré avec Didier Grand pour l’élaboration de son nouveau site internet. Efficace, patient et à l’écoute, il a su créer un site moderne et nous accompagner dans cette réalisation. Nous le recommandons vivement.</blockquote>
-          <figcaption class="person"><span class="avatar" aria-hidden="true">A</span><span><b>Aurélie</b><br>Secrétaire communale, Commune de Remaufens</span></figcaption>
-          </figure>
-          <div class="frame frame--photo frame--stage"><img class="frame__img" src="images/home/remaufens-hero.webp" alt="Le village de Remaufens vu du ciel, en Veveyse" width="1200" height="600" loading="lazy" data-source="client" data-subject="Remaufens, Veveyse"></div>
-        </div>
+      <div class="grid grid--top avis">
+        <figure class="card avis__card span-6">
+          <span class="avis__mark" aria-hidden="true">“</span>
+          <blockquote>J’ai beaucoup apprécié travailler avec Digitalgarage. Didier est à la fois efficace, minutieux et force de proposition. La communication a toujours été régulière et fluide, et les délais ont été scrupuleusement respectés.</blockquote>
+          <figcaption class="avis__who"><img src="images/logos/jcis-forum-2026.png" alt="JCIS Forum 2026" width="327" height="120" loading="lazy"><span><b>Mégane</b><br>Responsable communication, JCIS Veveyse</span></figcaption>
+        </figure>
+        <figure class="card avis__card span-6 start-7">
+          <span class="avis__mark" aria-hidden="true">“</span>
+          <blockquote>La Commune de Remaufens a collaboré avec Didier Grand pour l’élaboration de son nouveau site internet. Efficace, patient et à l’écoute, il a su créer un site moderne et nous accompagner dans cette réalisation.</blockquote>
+          <figcaption class="avis__who"><img src="images/logos/remaufens.png" alt="Commune de Remaufens" width="338" height="120" loading="lazy"><span><b>Aurélie</b><br>Secrétaire communale, Commune de Remaufens</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -321,7 +397,7 @@
         </div>
         <div class="span-2 footer__col"><h3>Navigation</h3><ul><li><a href="./">Accueil</a></li><li><a href="./#competences">Compétences</a></li><li><a href="./#realisations">Réalisations</a></li><li><a href="contact">Contact</a></li></ul></div>
         <div class="span-3 footer__col"><h3>Réalisations</h3><ul><li><a href="projet-scott-product-card">Product card - UX/UI Design</a></li><li><a href="site-web-jcis-forum-2026">JCIS Forum 2026</a></li><li><a href="remaufens">Commune de Remaufens</a></li><li><a href="conception-site-web-chatel-st-denis-veveyse">Création de site internet à Châtel-St-Denis et en Veveyse</a></li></ul></div>
-        <div class="span-3 footer__col"><h3>Offre</h3><ul><li><a href="site-vitrine">Site vitrine dès CHF 100.– / mois</a></li><li><a href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Offre</h3><ul><li><a href="./#offres">Les 3 offres</a></li><li><a href="site-sur-mesure">Site sur mesure dès CHF 9’600.–</a></li><li><a href="site-vitrine">Site vitrine dès CHF 100.– / mois</a></li><li><a href="refonte">Refonte de site dès CHF 3’600.–</a></li><li><a href="https://www.linkedin.com/in/didiergrand/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.facebook.com/digitalgarage.ch" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/digitalgarage.ch/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       </div>
       <div class="footer__legal">
         <span>© Digitalgarage – Didier Grand</span>
@@ -335,6 +411,16 @@
   </div>
 </footer>
 
+<script>
+  // Bandeau de logos : le bouton met le défilement en pause ou le relance
+  document.querySelectorAll('[data-logos]').forEach(function (box) {
+    var b = box.querySelector('.clogos__pause');
+    b.addEventListener('click', function () {
+      var on = box.classList.toggle('is-paused');
+      b.setAttribute('aria-pressed', on); b.textContent = on ? 'Lecture' : 'Pause';
+    });
+  });
+</script>
 <script src="js/site.js?v=1" defer></script>
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>

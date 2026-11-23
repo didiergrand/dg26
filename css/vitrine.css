@@ -399,3 +399,33 @@ body.cb-open .sticky-cta { display: none; }
   .pick span { font-size: 14px; padding: 9px 13px; }
 }
 .mini-head .dot { display: inline-block; margin-right: 8px; vertical-align: 1px; }
+
+/* 8 réalisations : la case « Votre site ici ? » devient un bandeau sur toute la largeur */
+.work.yours { grid-column: 1 / -1; }
+.work.yours .slot { aspect-ratio: auto; min-height: 110px; grid-auto-flow: column; align-items: center; gap: 14px; }
+
+/* Page Refonte : deux formules côte à côte, la refonte mise en avant */
+#tarif .pricing.pricing--duo { grid-template-columns: repeat(2, 1fr); }
+#tarif .plan.is-main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+#tarif .plan .amount small:first-child { margin-right: 4px; }
+#tarif .plan .btn { margin-top: auto; align-self: flex-start; }
+@media (max-width: 1000px) { #tarif .pricing.pricing--duo { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { #tarif .pricing--duo .plan .amount { font-size: 38px; white-space: nowrap; } }
+
+/* Page Site sur mesure */
+.diag textarea { display: block; width: 100%; margin-top: 6px; font: inherit; font-weight: 400; font-size: 16px; color: var(--ink);
+  background: #fff; border: 1.5px solid var(--line); border-radius: 10px; padding: 13px 14px; min-height: 120px; resize: vertical; }
+.diag textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.diag .opt-label { font-weight: 400; color: #6b6f7a; }
+.gets { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 12px; }
+.gets li { display: flex; gap: 12px; font-size: 16px; line-height: 1.4; }
+.gets li svg { width: 20px; height: 20px; color: #16a34a; flex-shrink: 0; margin-top: 1px; }
+.cadrage-price { display: flex; align-items: baseline; gap: 8px; margin: 8px 0 4px; font-size: 44px; font-weight: 900; line-height: 1; letter-spacing: -0.5px; }
+.cadrage-price small { font-size: 16px; font-weight: 500; letter-spacing: 0; color: #5b6070; }
+.communes { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.communes > span:first-child { font-weight: 700; margin-right: 6px; }
+.direct { margin: 28px 0 0; display: flex; gap: 16px; align-items: center; }
+.direct img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; flex-shrink: 0; }
+.direct p { margin: 0; font-size: 16px; line-height: 1.5; }
+.direct a { color: var(--accent); }
+.cadrage-price { flex-wrap: wrap; white-space: nowrap; column-gap: 12px; } .cadrage-price small { white-space: normal; }

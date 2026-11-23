@@ -1,7 +1,8 @@
 <?php
-/* Mini formulaires de la page site-vitrine.html :
+/* Mini formulaires des pages site-vitrine.html, refonte.html, site-sur-mesure.html et de l'accueil :
    - type « diagnostic » (par défaut) : adresse du site, nom, contact ;
-   - type « rendez-vous » : formule choisie, nom, contact.
+   - type « rendez-vous » : formule choisie, nom, contact ;
+   - type « projet » (accueil) : nom, contact, entreprise facultative, description du projet.
    Envoie la demande par e-mail à Didier, puis répond en JSON (envoi en JS)
    ou redirige vers la page (si JavaScript est désactivé).
 
@@ -22,8 +23,8 @@ const MAX_PAR_JOUR   = 30;   // envois au total sur 24 heures
 // Compteur des envois. L'extension .php et la première ligne « exit » empêchent de le lire depuis le web.
 const COMPTEUR = __DIR__ . "/envois-compteur.php";
 
-$type = (isset($_POST["type"]) && $_POST["type"] === "rendez-vous") ? "rendez-vous" : "diagnostic";
-$ancre = $type === "rendez-vous" ? "demande" : "diagnostic";
+$type = in_array($_POST["type"] ?? "", ["rendez-vous", "projet"], true) ? $_POST["type"] : "diagnostic";
+$ancre = ["rendez-vous" => "demande", "projet" => "contact", "diagnostic" => "diagnostic"][$type];
 $json = isset($_SERVER["HTTP_ACCEPT"]) && strpos($_SERVER["HTTP_ACCEPT"], "application/json") !== false;
 $secours = "Vous pouvez m’écrire directement à dg@digitalgarage.ch ou appeler le 078 653 58 90.";
 
@@ -34,7 +35,11 @@ function reponse($ok, $message, $json) {
     header("Content-Type: application/json; charset=utf-8");
     echo json_encode(["ok" => $ok, "message" => $message]);
   } else {
-    header("Location: " . RETOUR . "?envoi=" . ($ok ? "ok" : "erreur") . "#" . $ancre, true, 303);
+    global $type;
+    // la page Refonte a son propre formulaire de diagnostic : on y revient
+    $pages = ["refonte" => "refonte.html", "sur-mesure" => "site-sur-mesure.html"];
+    $page = $pages[$_POST["page"] ?? ""] ?? ($type === "projet" ? "./" : RETOUR);
+    header("Location: " . $page . "?envoi=" . ($ok ? "ok" : "erreur") . "#" . $ancre, true, 303);
   }
   exit;
 }
@@ -64,11 +69,15 @@ $nom     = $propre("nom", 120);
 $contact = $propre("contact", 160);
 $origine = $propre("origine", 60);
 $formule = $propre("formule", 40);
+$entreprise = $propre("entreprise", 120);
+// La description du projet garde ses retours à la ligne (elle va seulement dans le corps du message)
+$message = isset($_POST["message"]) ? mb_substr(trim(str_replace("\r", "", (string) $_POST["message"])), 0, 3000) : "";
 $formules = ["Essentiel", "Confort", "Plus", "Je ne sais pas encore"];
 
 if ($nom === "" || $contact === "") reponse(false, "Merci de remplir tous les champs.", $json);
 if ($type === "diagnostic" && $site === "") reponse(false, "Merci de remplir tous les champs.", $json);
 if ($type === "rendez-vous" && !in_array($formule, $formules, true)) reponse(false, "Merci de choisir une formule.", $json);
+if ($type === "projet" && $message === "") reponse(false, "Merci de décrire votre projet en quelques mots.", $json);
 
 $email = filter_var($contact, FILTER_VALIDATE_EMAIL) ? $contact : "";
 $tel   = preg_match("/^[+0-9 ().\/-]{9,20}$/", $contact) ? $contact : "";
@@ -97,7 +106,11 @@ if ($fp && flock($fp, LOCK_EX)) {
   if ($trop) reponse(false, "Le formulaire a reçu trop de demandes. " . $secours, $json);
 }
 
-if ($type === "rendez-vous") {
+if ($type === "projet") {
+  $sujet = "Nouveau projet : " . $nom . ($entreprise !== "" ? " (" . $entreprise . ")" : "");
+  $corps = "Nouvelle demande de projet\n\n"
+         . ($entreprise !== "" ? "Entreprise : " . $entreprise . "\n" : "");
+} elseif ($type === "rendez-vous") {
   $sujet = "Site vitrine, formule " . $formule . " : " . $nom;
   $corps = "Nouvelle demande de rendez-vous pour un site vitrine\n\n"
          . "Formule : " . $formule . "\n";
@@ -109,7 +122,8 @@ if ($type === "rendez-vous") {
 $corps .= "Nom : " . $nom . "\n"
        . "Contact : " . $contact . "\n"
        . "Provenance : " . ($origine !== "" ? $origine : "site-vitrine") . "\n"
-       . "Date : " . date("d.m.Y H:i") . "\n";
+       . "Date : " . date("d.m.Y H:i") . "\n"
+       . ($message !== "" ? "\nProjet :\n" . $message . "\n" : "");
 
 $entetes = "From: Digitalgarage <" . EXPEDITEUR . ">\r\n"
          . ($email !== "" ? "Reply-To: " . $email . "\r\n" : "")
