@@ -439,3 +439,4 @@ body.cb-open .sticky-cta { display: none; }
 #remaufens .communes { margin-top: 48px; }
 .works.works--six { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 1000px) { .works.works--six { grid-template-columns: repeat(2, 1fr); } }
+.lp-hero h1 .price.price--wrap { white-space: normal; }

@@ -97,7 +97,10 @@
   .offres .plan__btn--primary { background: var(--p-action); color: var(--p-action-ink); }
   .offres .plan__list { gap: var(--s-2); margin-top: var(--s-5); }
   @media (max-width: 639px) { .offres .plan__list { display: none; } .card.plan > .plan__price { font-size: 36px; } }
-  .offres-suivi { margin: var(--s-6) 0 0; max-width: 72ch; }
+  .suivi__both .rows__name, .suivi__both .rows__value { font-weight: 700; }
+  #suivi .rows__value { white-space: nowrap; max-width: none; }
+  .suivi__note { margin: var(--s-5) 0 0; color: var(--muted); max-width: 60ch; }
+  .suivi__note a { color: var(--ink); text-decoration: underline; }
   @media (min-width: 640px) and (max-width: 1023px) { #offres { --h: 2 } }
   @media (min-width: 1024px) and (max-width: 1279px) { #offres .grid > .card { grid-column: span 4; } }
   @media (max-width: 639px) { #offres { --hm: 2 } }
@@ -248,7 +251,26 @@
           </ul>
         </article>
       </div>
-      <p class="offres-suivi"><b>Et ensuite&nbsp;?</b> Je m’occupe de la maintenance, des mises à jour et des modifications de votre site, dès CHF 60.– par mois. <a href="contact">Parlons-en</a></p>
+    </div>
+  </section>
+
+  <!-- SUIVI: after launch, two yearly services and the pair, as rows with their price -->
+  <section class="section" id="suivi" aria-labelledby="suivi-h">
+    <div class="wrap grid grid--top">
+      <div class="span-5">
+        <div class="section-head">
+          <h2 id="suivi-h">Et après la mise en ligne&nbsp;?</h2>
+          <p>Je garde votre site à jour et je fais vos modifications. Vous choisissez ce dont vous avez besoin, ou vous gérez tout vous-même.</p>
+        </div>
+      </div>
+      <div class="span-6 start-7">
+        <ul class="rows suivi">
+          <li><span class="rows__name">Maintenance technique</span><p>Mises à jour de WordPress, du thème et des extensions, sauvegardes et sécurité.</p><span class="rows__value">CHF 720.– / an</span></li>
+          <li><span class="rows__name">Modifications de contenu</span><p>6 heures par an, à utiliser quand vous voulez&nbsp;: textes, photos, actualités, nouvelles pages.</p><span class="rows__value">CHF 720.– / an</span></li>
+          <li class="suivi__both"><span class="rows__name">Les deux</span><p>La maintenance et 6 heures de modifications par an.</p><span class="rows__value">CHF 1’200.– / an</span></li>
+        </ul>
+        <p class="suivi__note">Pour les sites que j’ai créés. Au-delà des 6 heures, CHF 120.– de l’heure. Votre site a été fait par quelqu’un d’autre&nbsp;? Je commence par un audit de départ, sur devis. Déjà compris dans l’abonnement <a href="site-vitrine">site vitrine</a>. <a href="contact">Parlons-en</a></p>
+      </div>
     </div>
   </section>
 
