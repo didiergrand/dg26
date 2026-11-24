@@ -429,3 +429,13 @@ body.cb-open .sticky-cta { display: none; }
 .direct p { margin: 0; font-size: 16px; line-height: 1.5; }
 .direct a { color: var(--accent); }
 .cadrage-price { flex-wrap: wrap; white-space: nowrap; column-gap: 12px; } .cadrage-price small { white-space: normal; }
+
+/* ---------- Page communes ---------- */
+.case-side .work { display: block; }
+.case-side .browser { position: relative; }
+.case-side .q { margin-top: 20px; padding: 26px; }
+.case-side .q blockquote { margin: 0 0 14px; font-size: 16px; line-height: 1.5; }
+.case-side .q figcaption { font-size: 14px; color: #5b6070; }
+#remaufens .communes { margin-top: 48px; }
+.works.works--six { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1000px) { .works.works--six { grid-template-columns: repeat(2, 1fr); } }

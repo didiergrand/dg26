@@ -1,5 +1,5 @@
 <?php
-/* Mini formulaires des pages site-vitrine.html, refonte.html, site-sur-mesure.html et de l'accueil :
+/* Mini formulaires des pages site-vitrine.html, refonte.html, site-sur-mesure.html, communes.html et de l'accueil :
    - type « diagnostic » (par défaut) : adresse du site, nom, contact ;
    - type « rendez-vous » : formule choisie, nom, contact ;
    - type « projet » (accueil) : nom, contact, entreprise facultative, description du projet.
@@ -37,7 +37,7 @@ function reponse($ok, $message, $json) {
   } else {
     global $type;
     // la page Refonte a son propre formulaire de diagnostic : on y revient
-    $pages = ["refonte" => "refonte.html", "sur-mesure" => "site-sur-mesure.html"];
+    $pages = ["refonte" => "refonte.html", "sur-mesure" => "site-sur-mesure.html", "communes" => "communes.html"];
     $page = $pages[$_POST["page"] ?? ""] ?? ($type === "projet" ? "./" : RETOUR);
     header("Location: " . $page . "?envoi=" . ($ok ? "ok" : "erreur") . "#" . $ancre, true, 303);
   }
