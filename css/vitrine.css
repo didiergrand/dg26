@@ -440,3 +440,8 @@ body.cb-open .sticky-cta { display: none; }
 .works.works--six { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 1000px) { .works.works--six { grid-template-columns: repeat(2, 1fr); } }
 .lp-hero h1 .price.price--wrap { white-space: normal; }
+
+/* Avis Google : étoiles et lien vers la fiche */
+.q-stars { display: block; margin-bottom: 12px; color: #f5b301; letter-spacing: 2px; font-size: 16px; }
+.q-more { margin: 24px 0 0; text-align: center; font-weight: 600; }
+.q-more a { color: inherit; text-underline-offset: 4px; }

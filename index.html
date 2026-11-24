@@ -88,6 +88,20 @@
   .avis__who { display: flex; align-items: center; gap: var(--s-4); padding-top: var(--s-5); border-top: 1px solid var(--line); font: 400 var(--t-small)/1.45 var(--font-text); color: var(--ink); }
   .avis__who img { height: 36px; width: auto; max-width: 120px; object-fit: contain; filter: brightness(0); opacity: .85; flex: none; }
   @media (max-width: 639px) { .avis__card { padding: var(--s-5); } .avis__card blockquote { font-size: 20px; } .avis__mark { font-size: 72px; } }
+  /* the Google reviews: a head line with the score and the link, then four short cards */
+  .gavis { margin-top: var(--s-6); }
+  /* six reviews do not fit one screen: the section grows with its content instead of overlapping the footer */
+  #engagement { height: auto; min-height: 100vh; min-height: 100svh; }
+  .gavis__head--top { margin-top: calc(-1 * var(--s-3)); }
+  .gavis__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3) var(--s-6); margin-bottom: var(--s-5); }
+  .gavis__title { margin: 0; font: 400 var(--t-body)/1.4 var(--font-text); color: var(--ink); }
+  .gavis__stars { color: #f5b301; letter-spacing: 2px; }
+  .gavis__card { margin: 0; padding: var(--s-6); gap: var(--s-4); justify-content: space-between; }
+  .gavis__card blockquote { margin: 0; flex: 1; font: 400 var(--t-body)/1.5 var(--font-text); color: var(--ink); text-wrap: pretty; }
+  .gavis__card figcaption { padding-top: var(--s-4); border-top: 1px solid var(--line); font: 400 var(--t-small)/1.45 var(--font-text); color: var(--ink-muted, var(--ink)); }
+  .gavis__card figcaption b { color: var(--ink); }
+  @media (min-width: 640px) and (max-width: 1279px) { .gavis .grid > .card.span-3 { grid-column: auto / span 6; } }
+  @media (max-width: 639px) { .gavis__card { padding: var(--s-5); } }
   /* the three offers as plan cards: the price set large, one row height; the follow-up line under them */
   .offres .plan { padding: var(--s-6); }
   .card.plan > .plan__price { display: flex; align-items: baseline; gap: var(--s-2); margin: var(--s-4) 0 0; font: var(--display-weight) 44px/1 var(--font-display); letter-spacing: var(--display-tracking-xl); color: var(--ink); max-width: none; }
@@ -385,17 +399,45 @@
       <div class="section-head">
         <h2 id="engagement-h">Ce que disent mes clients</h2>
       </div>
+        <div class="gavis__head gavis__head--top">
+          <p class="gavis__title"><span class="gavis__stars" aria-hidden="true">★★★★★</span> <b>5 sur 5</b> sur Google</p>
+          <a class="link" href="https://g.page/r/CWHpwA7P8557EAI" target="_blank" rel="noopener">Voir tous les avis sur Google</a>
+        </div>
       <div class="grid grid--top avis">
         <figure class="card avis__card span-6">
           <span class="avis__mark" aria-hidden="true">“</span>
           <blockquote>J’ai beaucoup apprécié travailler avec Digitalgarage. Didier est à la fois efficace, minutieux et force de proposition. La communication a toujours été régulière et fluide, et les délais ont été scrupuleusement respectés.</blockquote>
-          <figcaption class="avis__who"><img src="images/logos/jcis-forum-2026.png" alt="JCIS Forum 2026" width="327" height="120" loading="lazy"><span><b>Mégane</b><br>Responsable communication, JCIS Veveyse</span></figcaption>
+          <figcaption class="avis__who"><img src="images/logos/jcis-forum-2026.png" alt="JCIS Forum 2026" width="327" height="120" loading="lazy"><span><b>Mégane</b><br>Responsable communication, JCIS Veveyse · avis Google</span></figcaption>
         </figure>
         <figure class="card avis__card span-6 start-7">
           <span class="avis__mark" aria-hidden="true">“</span>
           <blockquote>La Commune de Remaufens a collaboré avec Didier Grand pour l’élaboration de son nouveau site internet. Efficace, patient et à l’écoute, il a su créer un site moderne et nous accompagner dans cette réalisation.</blockquote>
-          <figcaption class="avis__who"><img src="images/logos/remaufens.png" alt="Commune de Remaufens" width="338" height="120" loading="lazy"><span><b>Aurélie</b><br>Secrétaire communale, Commune de Remaufens</span></figcaption>
+          <figcaption class="avis__who"><img src="images/logos/remaufens.png" alt="Commune de Remaufens" width="338" height="120" loading="lazy"><span><b>Aurélie</b><br>Secrétaire communale, Commune de Remaufens · avis Google</span></figcaption>
         </figure>
+      </div>
+      <div class="gavis">
+        <div class="grid grid--top">
+          <figure class="card gavis__card span-3">
+            <span class="gavis__stars" role="img" aria-label="5 étoiles sur 5">★★★★★</span>
+            <blockquote>Monsieur Grand fait preuve d’une grande disponibilité et d’un professionnalisme exemplaire. Après plusieurs années de collaboration, la Commune de Saint-Martin FR est pleinement satisfaite de la qualité de ses prestations.</blockquote>
+            <figcaption><b>Sylvie</b><br>Commune de Saint-Martin · avis Google</figcaption>
+          </figure>
+          <figure class="card gavis__card span-3">
+            <span class="gavis__stars" role="img" aria-label="5 étoiles sur 5">★★★★★</span>
+            <blockquote>Très grande disponibilité, traitement des demandes de qualité et rapide. Propose des solutions et est à l’écoute de nos besoins. Je ne peux que recommander Monsieur Grand.</blockquote>
+            <figcaption><b>Bettina</b><br>Commune d’Attalens · avis Google</figcaption>
+          </figure>
+          <figure class="card gavis__card span-3">
+            <span class="gavis__stars" role="img" aria-label="5 étoiles sur 5">★★★★★</span>
+            <blockquote>Travail rapide, ciblé et Didier était à notre écoute afin de répondre au mieux à nos attentes.</blockquote>
+            <figcaption><b>Marc</b><br>Giron des musiques 2026, Semsales · avis Google</figcaption>
+          </figure>
+          <figure class="card gavis__card span-3">
+            <span class="gavis__stars" role="img" aria-label="5 étoiles sur 5">★★★★★</span>
+            <blockquote>Un site internet pour ma société d’une très grande qualité, avec de très bons conseils. Je ne peux que recommander Didier Grand pour votre futur site internet.</blockquote>
+            <figcaption><b>Manuel</b><br>Expert en diagnostic amiante et polluants du bâtiment · avis Google</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
